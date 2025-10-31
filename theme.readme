@@ -1,0 +1,81 @@
+# Faisal Haroon Brand Theme
+
+This document defines the color palette, gradients, shadows, and typography to be used across all creative outputs (social media, thumbnails, banners, posts, reels, story covers, and motion graphics).
+
+## Core Palette (HEX)
+- Primary Blue: #00A8FF
+- Secondary Cyan: #00E5FF
+- Neon Accent: #0066FF
+- Background: #000000
+- Foreground/Text: #FFFFFF
+- Subtle Grid Line (overlay): rgba(0, 168, 255, 0.03)
+
+## Gradients
+- Primary Gradient (CTA / Bars / Underlines):
+  - Direction: left → right
+  - From: #00A8FF
+  - To:   #00E5FF
+  - CSS example: `linear-gradient(90deg, #00A8FF 0%, #00E5FF 100%)`
+
+- Accent Gradient (Background glow spots):
+  - Use low-opacity radial glows with blues
+  - Examples: `rgba(0, 100, 255, 0.06)`, `rgba(0, 150, 255, 0.06)`
+
+## Glow & Shadow Styles
+- Soft Outer Glow: 0 0 24px rgba(0, 168, 255, 0.45)
+- Subtle Card Shadow: 0 2px 42px rgba(0, 229, 255, 0.08–0.15)
+- Divider/Border (glow style):
+  - Border: 1px solid rgba(0, 168, 255, 0.30–0.40)
+  - Inner Glow: inset 0 0 20px rgba(0, 168, 255, 0.10)
+
+## Typography
+- Display/Headings: Orbitron (Google Fonts)
+  - Fallbacks: sans-serif
+  - Usage: H1–H3, logos, big numeric stats, hero titles
+- Body/Paragraphs: Inter (Google Fonts)
+  - Fallbacks: Arial, Helvetica, sans-serif
+  - Usage: Paragraphs, captions, labels, buttons
+
+Suggested weights
+- Orbitron: 600–800 for striking display
+- Inter: 400 (body), 600–700 (buttons/labels)
+
+## Accessibility
+- Maintain high contrast: white text (#FFFFFF) on black (#000000)
+- When using colored text, place on black or very dark backgrounds; avoid thin cyan-on-white
+- Minimum contrast ratio target: 4.5:1 for body text
+
+## Usage Guidance (Social Media)
+- Backgrounds: solid black (#000000) with subtle grid or radial blue glows at 6% opacity
+- CTAs/Buttons/Badges: primary gradient from #00A8FF to #00E5FF, text in black or very dark gray
+- Active States/Highlights: use #00A8FF overlays at 10–25% opacity
+- Underlines/Progress Bars: horizontal gradient from #00A8FF to #00E5FF
+- Dividers/Containers: 1px border rgba(0,168,255,0.30–0.40) + soft glow
+- Icons/Accents: white primary; hover or active in #00E5FF
+
+## Quick Tokens (for reference)
+- --background: #000000
+- --foreground: #FFFFFF
+- --glow-blue / primary: #00A8FF
+- --glow-cyan / secondary: #00E5FF
+- --neon-accent: #0066FF
+
+## Examples
+- Button (light-on-dark):
+  - Background: gradient (#00A8FF → #00E5FF)
+  - Text: #000000
+  - Shadow: 0 0 24px rgba(0,168,255,0.30)
+- Card:
+  - Background: #000000 (95–98% opaque if overlayed)
+  - Border: 1px solid rgba(0,168,255,0.35)
+  - Shadow: 0 2px 42px rgba(0,229,255,0.12)
+- Headline:
+  - Font: Orbitron 700–800, all-caps optional
+  - Color: gradient-filled text (#00A8FF → #00E5FF) when large; else #FFFFFF
+
+## File Delivery Notes
+- Provide exported assets for dark backgrounds; avoid embedded white backgrounds
+- Keep gradients and glow layers editable in source files (PSD/AI/FIG)
+- Use color styles in design tools named: Primary, Secondary, Accent, Background, Foreground
+
+— End of theme —

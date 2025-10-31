@@ -9,10 +9,8 @@ import { motion } from "framer-motion";
 
 export default function VideoSlider() {
   const videos = [
-    "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "https://www.youtube.com/embed/3JZ_D3ELwOQ",
-    "https://www.youtube.com/embed/tgbNymZ7vqY",
-    "https://www.youtube.com/embed/9bZkp7q19f0",
+    // Source: https://youtu.be/lILHEnz8fTk?si=ihfwy33FxRf4ZLlm
+    "https://www.youtube.com/embed/lILHEnz8fTk",
   ];
 
   return (
@@ -40,17 +38,19 @@ export default function VideoSlider() {
             <SwiperSlide key={index} className="relative group">
               <motion.div
                 initial={{ boxShadow: "0 0 0px #00e5ff00" }}
-                animate={{ boxShadow: [
-                  "0 0 20px 0 #00e5ff55",
-                  "0 0 35px 2px #00e5ff88",
-                  "0 0 24px 0 #00e5ff55"
-                ] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-full h-60 bg-gray-900 rounded-lg overflow-hidden shadow-lg border-2 border-white"
+                animate={{
+                  boxShadow: [
+                    "0 0 12px 0 #00e5ff55, 0 0 0px 0 #00a8ff00",
+                    "0 0 24px 2px #00e5ff88, 0 0 18px 0 #00a8ff44",
+                    "0 0 14px 0 #00e5ff55, 0 0 0px 0 #00a8ff00"
+                  ]
+                }}
+                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+                className="relative w-full h-60 bg-gray-900 rounded-lg overflow-hidden shadow-lg border border-[#00e5ff]/40"
               >
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src={`${video}?controls=0`} // Hides controls for a cleaner look
+                  src={`${video}?controls=0`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>

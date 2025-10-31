@@ -54,17 +54,30 @@ export default function Navbar() {
         <div className="container mx-auto flex justify-between items-center px-6">
           {/* Logo with animation - replaced FH with image */}
           <Link href="/" className="group flex items-center">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.85 }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.88 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ scale: 1.09 }}
+              transition={{ duration: 1, ease: [0.25, 1, 0.4, 1] }}
+              whileHover={{ scale: 1.035 }}
               className="flex items-center space-x-2"
             >
-              <div className="relative h-10 w-10 rounded-full overflow-hidden border border-[#00a8ff]/40 shadow-[0_0_15px_rgba(0,168,255,0.35)]">
-                <Image src="/faisal-bgremoved.png" alt="Faisal" fill className="object-contain scale-110" />
-              </div>
-              <span className="text-white font-bold text-lg font-orbitron">Faisal Haroon</span>
+              {/* Avatar with classic border + stronger outer shadow */}
+              <motion.div
+                className="relative h-10 w-10 rounded-full overflow-hidden border border-[#00a8ff]/40 shadow-[0_0_24px_rgba(0,168,255,0.45)]"
+                whileHover={{ scale: 1.04 }}
+              >
+                <Image src="/faisal-bgremoved.png" alt="Faisal" fill className="object-cover rounded-full aspect-square relative z-10 select-none" />
+              </motion.div>
+              {/* Animated Text */}
+              <motion.span
+                className="text-white font-bold text-lg font-orbitron ml-1 relative"
+                initial={{ opacity: 0, x: -10, filter: "blur(4px)" }}
+                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.25, 1, 0.4, 1] }}
+                whileHover={{ textShadow: "0 0 24px #00e5ff, 0 0 6px #00e5ff99", x: 2 }}
+              >
+                Faisal Haroon
+              </motion.span>
             </motion.div>
           </Link>
 
@@ -128,6 +141,14 @@ export default function Navbar() {
               className="md:hidden fixed top-0 left-0 w-full h-full z-[60] bg-black/70"
               style={{ boxShadow: '0 2px 42px 7px #00e5ff14' }}
             >
+              {/* Close button inside overlay */}
+              <button
+                aria-label="Close menu"
+                onClick={() => setIsOpen(false)}
+                className="absolute top-6 right-6 p-2 rounded-lg border border-[#00a8ff]/40 bg-black/50 text-white"
+              >
+                <X size={22} />
+              </button>
               <motion.div
                 initial={{ opacity: 0, scale: 0.92, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}

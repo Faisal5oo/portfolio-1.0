@@ -95,34 +95,28 @@ export default function About() {
               >
                 {/* Premium Glowing Shadow - Animated */}
                 <motion.div 
-                  className="absolute -inset-6 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] rounded-lg blur-xl"
-                  animate={{
-                    opacity: [0.2, 0.4, 0.2],
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
+                  className="absolute -inset-8 rounded-2xl pointer-events-none"
+                  style={{ background: "radial-gradient(closest-side, rgba(0,232,255,0.18), rgba(0,168,255,0.10), transparent)" }}
+                  animate={{ opacity: [0.18, 0.42, 0.18], scale: [1, 1.03, 1] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 />
                 
-                {/* Square Frame with Glow Border */}
+                {/* Cinematic Frame with Tron Accent */}
                 <motion.div 
-                  className="relative bg-transparent p-2 rounded-lg border-2 border-[#00a8ff]/40"
+                  className="relative bg-gradient-to-b from-gray-900/20 to-black/20 p-2 rounded-2xl border border-[#00e5ff]/30 shadow-[0_0_30px_rgba(0,229,255,0.15)] backdrop-blur-sm"
                   whileHover={{ 
-                    scale: 1.05,
+                    scale: 1.03,
                   }}
                   animate={{
                     boxShadow: [
-                      "0 0 20px rgba(0, 168, 255, 0.3), 0 0 40px rgba(0, 229, 255, 0.2)",
-                      "0 0 30px rgba(0, 168, 255, 0.5), 0 0 60px rgba(0, 229, 255, 0.3)",
-                      "0 0 20px rgba(0, 168, 255, 0.3), 0 0 40px rgba(0, 229, 255, 0.2)"
+                      "0 0 24px rgba(0,229,255,0.18)",
+                      "0 0 46px rgba(0,229,255,0.28)",
+                      "0 0 24px rgba(0,229,255,0.18)"
                     ]
                   }}
                   transition={{
                     boxShadow: {
-                      duration: 3,
+                      duration: 3.5,
                       repeat: Infinity,
                       ease: "easeInOut"
                     },
@@ -131,10 +125,19 @@ export default function About() {
                     }
                   }}
                 >
-                  {/* Image Container - Square with Grid Background Visible */}
-                  <div className="bg-transparent rounded-sm h-[600px] w-full overflow-hidden relative">
+                  {/* Image Container - Rounded with layered borders */}
+                  <div className="bg-transparent rounded-xl h-[600px] w-full overflow-hidden relative">
                     {/* Grid pattern visible behind image */}
                     <div className="absolute inset-0 grid-pattern opacity-20"></div>
+                    {/* Inner subtle border */}
+                    <div className="absolute inset-0 rounded-xl border border-[#00a8ff]/30 pointer-events-none"></div>
+                    {/* Outer accent corners */}
+                    <div className="pointer-events-none">
+                      <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-[#00e5ff]/70 rounded-tl-xl"></div>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-[#00e5ff]/70 rounded-tr-xl"></div>
+                      <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-[#00e5ff]/70 rounded-bl-xl"></div>
+                      <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-[#00e5ff]/70 rounded-br-xl"></div>
+                    </div>
                     
                 <motion.img 
                   src="/faisal-bgremoved.png" 
@@ -154,26 +157,16 @@ export default function About() {
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#00a8ff]/3 to-[#00e5ff]/5 pointer-events-none z-10"></div>
                   </div>
                   
-                  {/* Corner Accents with Glow Animation */}
+                  {/* Soft scanline shimmer */}
                   <motion.div 
-                    className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-[#00e5ff]"
-                    animate={{ opacity: [0.4, 0.8, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                  <motion.div 
-                    className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-[#00e5ff]"
-                    animate={{ opacity: [0.4, 0.8, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                  />
-                  <motion.div 
-                    className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-[#00e5ff]"
-                    animate={{ opacity: [0.4, 0.8, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                  />
-                  <motion.div 
-                    className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-[#00e5ff]"
-                    animate={{ opacity: [0.4, 0.8, 0.4] }}
-                    transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
+                    className="pointer-events-none absolute inset-0 rounded-xl"
+                    initial={{ opacity: 0.08 }}
+                    animate={{ background: [
+                      "linear-gradient(180deg, rgba(0,229,255,0.08) 0%, transparent 60%)",
+                      "linear-gradient(180deg, rgba(0,229,255,0.12) 0%, transparent 60%)",
+                      "linear-gradient(180deg, rgba(0,229,255,0.08) 0%, transparent 60%)"
+                    ] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                   />
                 </motion.div>
                 

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import LayoutWrapper from "../components/Layout/LayoutWrapper";
 import Link from "next/link";
-import { ChevronDown, ArrowRight, Sparkles, Zap, Video, Cpu, Code, Cloud, Target } from "lucide-react";
+import { ChevronDown, ArrowRight, Sparkles, Zap, Video, Cpu, Code, Cloud, Target, Eye, Rocket, Layers, Camera, Server, Brain, LineChart } from "lucide-react";
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -21,13 +21,23 @@ export default function Home() {
 
   useEffect(() => {
     const generateParticles = () => {
-      const newParticles = Array.from({ length: 50 }, (_, i) => ({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 3 + 1,
-        delay: Math.random() * 5,
-      }));
+      const newParticles = Array.from({ length: 50 }, (_, i) => {
+        // Random movement ranges per particle (avoid strictly diagonal by using independent ranges)
+        const xSpread = 15 + Math.random() * 35; // 15 - 50 px
+        const ySpread = 15 + Math.random() * 35; // 15 - 50 px
+        const xDir = Math.random() > 0.5 ? 1 : -1;
+        const yDir = Math.random() > 0.5 ? 1 : -1;
+        return {
+          id: i,
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          size: Math.random() * 3 + 1,
+          delay: Math.random() * 5,
+          xKeyframes: [0, xDir * xSpread, xDir * -xSpread * 0.6, 0],
+          yKeyframes: [0, yDir * -ySpread, yDir * ySpread * 0.5, 0],
+          duration: 3.2 + Math.random() * 2.3
+        };
+      });
       setParticles(newParticles);
     };
     generateParticles();
@@ -54,13 +64,15 @@ export default function Home() {
                 height: `${particle.size}px`,
               }}
               animate={{
-                y: [0, -30, 0],
-                opacity: [0.1, 0.3, 0.1],
+                x: particle.xKeyframes,
+                y: particle.yKeyframes,
+                opacity: [0.12, 0.34, 0.18, 0.12],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: particle.duration,
                 repeat: Infinity,
                 delay: particle.delay,
+                ease: "easeInOut"
               }}
             />
           ))}
@@ -85,6 +97,14 @@ export default function Home() {
           <div className="absolute top-1/3 right-1/4 w-[600px] h-[300px] bg-[#00e5ff]/8 rounded-full blur-[120px]"></div>
           <div className="absolute bottom-1/4 left-1/3 w-[500px] h-[250px] bg-[#00a8ff]/8 rounded-full blur-[100px]"></div>
         </div>
+
+        {/* Cyan glow shadow near footer-left behind the main title */}
+        <motion.div
+          className="absolute bottom-8 left-6 w-[420px] h-[420px] rounded-full blur-[140px] pointer-events-none"
+          style={{ background: "radial-gradient(closest-side, rgba(0,232,255,0.18), rgba(0,168,255,0.08), transparent)" }}
+          animate={{ opacity: [0.2, 0.45, 0.2], scale: [1, 1.04, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -234,6 +254,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Scroll text highlights - animated underline on view */}
+      <section className="bg-transparent py-16 px-6 relative overflow-visible">
+        <div className="absolute inset-0 grid-pattern opacity-5"></div>
+        <div className="max-w-4xl mx-auto text-center relative">
+          {[
+            "Design for emotion. Engineer for resilience.",
+            "Ship value, not just features.",
+            "Tell the story behind the system."
+          ].map((line, i) => (
+            <motion.p
+              key={i}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="text-xl md:text-2xl text-gray-200 mb-6 relative inline-block"
+            >
+              {line}
+              <motion.span
+                className="absolute left-0 -bottom-2 h-[3px] rounded-full bg-gradient-to-r from-[#00a8ff] via-[#00e5ff] to-transparent"
+                initial={{ width: 0, opacity: 0.6 }}
+                whileInView={{ width: "100%", opacity: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              />
+            </motion.p>
+          ))}
+        </div>
+      </section>
+
       {/* Storytelling & Content Creation Section */}
       <section className="bg-transparent py-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
@@ -299,6 +349,219 @@ export default function Home() {
                 documented through engaging video content on LinkedIn.
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlights - continuous motion with enhanced neon glow */}
+      <section className="bg-transparent py-24 px-6 relative overflow-visible">
+        <div className="absolute inset-0 grid-pattern opacity-5"></div>
+        <div className="absolute -top-10 -left-10 w-[500px] h-[500px] bg-[#00e5ff]/8 rounded-full blur-[140px]"></div>
+        <div className="absolute -bottom-10 -right-10 w-[420px] h-[420px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
+
+        <div className="max-w-6xl mx-auto relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-12 relative"
+          >
+            {/* Neon glow behind heading */}
+            <motion.div
+              className="absolute left-1/2 -translate-x-1/2 -top-10 w-[720px] h-[240px] rounded-full blur-[140px] pointer-events-none"
+              style={{ background: "radial-gradient(closest-side, rgba(0,232,255,0.20), rgba(0,168,255,0.10), transparent)" }}
+              animate={{ opacity: [0.18, 0.42, 0.18], scale: [1, 1.03, 1] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <h2 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight">
+              <span className="text-white">Highlights </span>
+              <span className="gradient-text">in Motion</span>
+            </h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+              className="text-gray-300"
+            >
+              Engineering in flow — crisp visuals, smooth motion, and neon clarity.
+            </motion.p>
+          </motion.div>
+
+          <div className="relative">
+            <motion.div
+              className="flex gap-4 will-change-transform"
+              animate={{ x: [0, -600, 0] }}
+              transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+              style={{ filter: "drop-shadow(0 0 18px rgba(0, 229, 255, 0.16))" }}
+            >
+              {[
+                "Cinematic", "DevOps", "AI/ML", "React", "Next.js", "Cloud", "Design", "Open Source", "Storytelling"
+              ].concat([
+                "Cinematic", "DevOps", "AI/ML", "React", "Next.js"
+              ]).map((chip, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  whileHover={{ scale: 1.06 }}
+                  className="px-5 py-3 rounded-xl border border-[#00a8ff]/40 bg-gradient-to-b from-gray-900/40 to-black/30 text-[#cdefff] backdrop-blur-md shadow-[0_0_22px_rgba(0,229,255,0.10)]"
+                >
+                  <span className="text-sm font-semibold tracking-wide">{chip}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision - 3D tilt with tron accents */}
+      <section className="bg-transparent py-24 px-6 relative overflow-visible">
+        <div className="absolute inset-0 grid-pattern opacity-5"></div>
+        <div className="absolute top-1/4 right-1/4 w-[520px] h-[520px] bg-[#00a8ff]/10 rounded-full blur-[150px]"></div>
+
+        <div className="max-w-6xl mx-auto relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-white">Vision </span>
+              <span className="gradient-text">Forward</span>
+            </h2>
+            <p className="text-gray-300 max-w-3xl mx-auto">Crafting at the intersection of engineering, design, and cinematic storytelling — with a neon, modern, tron-inspired aesthetic.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-[1200px]">
+            {[{ Icon: Eye, title: "Clarity", desc: "Make complexity feel intuitive with clean UX" }, { Icon: Rocket, title: "Velocity", desc: "Ship fast without compromising quality" }, { Icon: Layers, title: "Depth", desc: "Blend content, product, and visuals" }].map(({ Icon, title, desc }, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: idx * 0.1 }}
+                whileHover={{ rotateX: -6, rotateY: 6, z: 10 }}
+                className="relative bg-gradient-to-b from-gray-900/40 to-black/40 border border-[#00e5ff]/30 rounded-2xl p-8 backdrop-blur-md transform-gpu will-change-transform"
+              >
+                <div className="absolute -top-1 -left-1 w-5 h-5 border-t-2 border-l-2 border-[#00e5ff]/70"></div>
+                <div className="absolute -top-1 -right-1 w-5 h-5 border-t-2 border-r-2 border-[#00e5ff]/70"></div>
+                <div className="absolute -bottom-1 -left-1 w-5 h-5 border-b-2 border-l-2 border-[#00e5ff]/70"></div>
+                <div className="absolute -bottom-1 -right-1 w-5 h-5 border-b-2 border-r-2 border-[#00e5ff]/70"></div>
+
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#00a8ff]/15 to-[#00e5ff]/15 flex items-center justify-center mb-5">
+                  <Icon size={30} className="text-[#00e5ff]" />
+                </div>
+                <h3 className="text-white text-2xl font-bold mb-2">{title}</h3>
+                <p className="text-gray-300">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Behind the Scenes - media placeholders with cinematic fades */}
+      <section className="bg-transparent py-24 px-6 relative overflow-visible">
+        <div className="absolute inset-0 grid-pattern opacity-5"></div>
+        <div className="absolute bottom-0 left-1/3 w-[540px] h-[540px] bg-[#00e5ff]/8 rounded-full blur-[150px]"></div>
+
+        <div className="max-w-6xl mx-auto relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-white">Behind the </span>
+              <span className="gradient-text">Scenes</span>
+            </h2>
+            <p className="text-gray-300">Peeks into process — from scripting to deployment.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[Camera, Video, Sparkles].map((Icon, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                whileHover={{ scale: 1.03 }}
+                className="relative h-56 rounded-2xl overflow-hidden border border-[#00a8ff]/30 bg-gradient-to-br from-gray-900/40 to-black/40"
+              >
+                <div className="absolute inset-0 bg-[url('/section-2.jpg')] bg-cover bg-center opacity-30"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <motion.div
+                  className="absolute inset-0"
+                  animate={{ opacity: [0.75, 0.95, 0.75] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  style={{ backdropFilter: "blur(2px)" }}
+                />
+                <div className="absolute bottom-4 left-4 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#00e5ff]/20 border border-[#00e5ff]/40 flex items-center justify-center">
+                    <Icon size={20} className="text-[#00e5ff]" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">Cinematic Workflow</p>
+                    <p className="text-gray-300 text-sm">Shot planning • Edits • Grading</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DevOps & AI/ML Learning - neon timeline */}
+      <section className="bg-transparent py-24 px-6 relative overflow-visible">
+        <div className="absolute inset-0 grid-pattern opacity-5"></div>
+        <div className="absolute top-10 left-10 w-[420px] h-[420px] bg-[#00a8ff]/10 rounded-full blur-[140px]"></div>
+
+        <div className="max-w-6xl mx-auto relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-white">DevOps & </span>
+              <span className="gradient-text">AI/ML Learning</span>
+            </h2>
+            <p className="text-gray-300">A living track of skills — shipping, scaling, and learning smart.</p>
+          </motion.div>
+
+          <div className="relative pl-4">
+            <div className="absolute left-7 top-0 bottom-0 w-px bg-gradient-to-b from-[#00e5ff]/60 via-[#00a8ff]/40 to-transparent"></div>
+            {[{ Icon: Server, title: "Infra & CI/CD", desc: "Docker, GitHub Actions, Vercel, k8s basics" }, { Icon: Cpu, title: "ML Fundamentals", desc: "Data prep, training loops, inference" }, { Icon: Brain, title: "AI Systems", desc: "RAG, vector DBs, orchestrations" }, { Icon: LineChart, title: "Observability", desc: "Metrics, traces, error budgets" }].map(({ Icon, title, desc }, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                className="relative pl-16 py-6"
+              >
+                <motion.div
+                  className="absolute left-0 top-6 w-12 h-12 rounded-xl bg-gradient-to-br from-[#00a8ff]/20 to-[#00e5ff]/20 border border-[#00e5ff]/40 flex items-center justify-center"
+                  animate={{ boxShadow: ["0 0 20px rgba(0,229,255,.18)", "0 0 32px rgba(0,229,255,.32)", "0 0 20px rgba(0,229,255,.18)"] }}
+                  transition={{ duration: 2.8, repeat: Infinity }}
+                >
+                  <Icon size={20} className="text-[#00e5ff]" />
+                </motion.div>
+                <div className="bg-gradient-to-b from-gray-900/40 to-black/40 border border-[#00a8ff]/30 rounded-2xl p-6">
+                  <p className="text-white font-semibold text-lg mb-1">{title}</p>
+                  <p className="text-gray-300 text-sm">{desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

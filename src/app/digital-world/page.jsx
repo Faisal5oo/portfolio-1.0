@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LayoutWrapper from "../../components/Layout/LayoutWrapper";
 import { Play, ExternalLink, Video, Youtube, Instagram, Linkedin, TrendingUp, Eye } from "lucide-react";
 
@@ -8,7 +8,8 @@ export default function DigitalWorld() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const [activeVideo, setActiveVideo] = useState(null);
-  const DEFAULT_VIDEO_ID = "vpzXg1jI5bc";
+  const iframeRef = useRef(null);
+  const DEFAULT_VIDEO_ID = "lILHEnz8fTk";
   // const extractVideoId = (url) => {
   //   try {
   //     const u = new URL(url);
@@ -32,7 +33,7 @@ export default function DigitalWorld() {
       category: "Engineering",
       views: "25K",
       platform: "LinkedIn",
-      link: "https://youtu.be/vpzXg1jI5bc?si=kAoR4RCs-JsMSNoy",
+      link: "https://youtu.be/lILHEnz8fTk?si=ihfwy33FxRf4ZLlm",
       thumbnail: Video
     },
     {
@@ -306,19 +307,55 @@ export default function DigitalWorld() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setActiveVideo(null)}
+            onClick={() => {
+              try {
+                if (iframeRef.current) {
+                  iframeRef.current.contentWindow.postMessage(
+                    JSON.stringify({ event: "command", func: "stopVideo", args: [] }),
+                    "*"
+                  );
+                }
+              } catch {}
+              setActiveVideo(null);
+            }}
+            role="dialog"
+            aria-modal="true"
+            tabIndex={-1}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                try {
+                  if (iframeRef.current) {
+                    iframeRef.current.contentWindow.postMessage(
+                      JSON.stringify({ event: "command", func: "stopVideo", args: [] }),
+                      "*"
+                    );
+                  }
+                } catch {}
+                setActiveVideo(null);
+              }
+            }}
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden border border-[#00a8ff]/40 shadow-[0_0_40px_rgba(0,168,255,0.25)]"
+              className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden border border-[#00a8ff]/40"
+              initial={{ boxShadow: "0 0 0px #00e5ff00" }}
+              animate={{
+                boxShadow: [
+                  "0 0 18px 0 rgba(0,229,255,0.35)",
+                  "0 0 34px 2px rgba(0,229,255,0.55)",
+                  "0 0 20px 0 rgba(0,229,255,0.35)"
+                ]
+              }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
               onClick={(e) => e.stopPropagation()}
             >
               <iframe
+                ref={iframeRef}
                 className="w-full h-full"
-                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&modestbranding=1&rel=0&controls=1`}
+                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&modestbranding=1&rel=0&controls=1&enablejsapi=1`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

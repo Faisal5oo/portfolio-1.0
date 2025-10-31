@@ -9,12 +9,12 @@ import { useMemo } from "react";
 export default function Layout({ children }) {
     // Fix: memoize circle positions per user session to avoid SSR mismatch
     const circles = useMemo(() => (
-      Array.from({ length: 10 }).map((_, i) => ({
+      Array.from({ length: 6 }).map((_, i) => ({
         left: ((i * 9) + ((i * 13) % 6)) % 100,
         top: ((i * 13) + ((i * 7) % 10)) % 100,
-        spread: 8 + ((i * 4) % 12),
-        opacity: 0.32 + (i % 3) * 0.09,
-        scale: 1 + (((i * 2) % 7) * 0.07)
+        spread: 6 + ((i * 4) % 10),
+        opacity: 0.16 + (i % 3) * 0.06,
+        scale: 1 + (((i * 2) % 7) * 0.06)
       }))
     ), []);
 
@@ -28,14 +28,14 @@ export default function Layout({ children }) {
                         key={i}
                         className="absolute w-1.5 h-1.5 rounded-full"
                         style={{
-                          background: 'linear-gradient(135deg, #303e4d 0%, #00e5ff 100%)',
+                          background: 'linear-gradient(135deg, #22303d 0%, #00e5ff 100%)',
                           left: `${c.left}%`,
                           top: `${c.top}%`
                         }}
                         animate={{
                             y: [0, -c.spread, 0, c.spread * 0.55, 0],
-                            opacity: [0.27, c.opacity, 0.21, c.opacity, 0.27],
-                            scale: [1, c.scale, 0.86, c.scale * 0.94, 1]
+                            opacity: [0.12, c.opacity, 0.1, c.opacity, 0.12],
+                            scale: [1, c.scale, 0.9, c.scale * 0.95, 1]
                         }}
                         transition={{
                             duration: 5 + i * 0.15,
