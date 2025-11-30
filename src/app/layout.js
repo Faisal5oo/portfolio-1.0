@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Faisal Haroon — Engineer. Creator. Visionary.",
+  title: "Faisal Haroon — Engineer, Learner, Creator",
   description: "Merging Technology, Design, and AI to Build the Future",
 };
 

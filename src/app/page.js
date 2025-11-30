@@ -115,7 +115,7 @@ export default function Home() {
             className="mb-6"
           >
             <motion.span 
-              className="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-[#00a8ff]/10 backdrop-blur-sm text-[#00e5ff] text-sm font-medium border border-[#00a8ff]/30"
+              className="inline-flex items-center gap-2 py-2 px-3 sm:px-4 rounded-full bg-[#00a8ff]/10 backdrop-blur-sm text-[#00e5ff] text-xs sm:text-sm font-medium border border-[#00a8ff]/30"
               animate={{ 
                 boxShadow: [
                   "0 0 20px rgba(0, 168, 255, 0.3)",
@@ -125,8 +125,8 @@ export default function Home() {
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Sparkles size={16} />
-              Welcome to My Digital World
+              <Sparkles size={14} className="sm:w-4 sm:h-4" />
+              <span className="whitespace-nowrap">Welcome to My Digital World</span>
             </motion.span>
           </motion.div>
           
@@ -134,19 +134,19 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-8xl font-bold mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight px-4"
           >
             <span className="text-white block mb-2">Faisal Haroon</span>
-            <span className="gradient-text block">Engineer. Creator. Visionary.</span>
+            <span className="gradient-text block text-3xl sm:text-4xl md:text-5xl lg:text-7xl">Engineer, Learner, Creator</span>
           </motion.h1>
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-xl md:text-2xl text-gray-300 mt-6 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-4 md:mt-6 max-w-3xl mx-auto leading-relaxed px-4"
           >
-            Merging Technology, Design, and AI to Build the Future
+            Documenting my evolution in the era of AI. learning, building, and exploring what's next.
           </motion.p>
 
           <motion.div
@@ -160,11 +160,11 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="group relative px-10 py-5 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] text-black font-bold text-lg rounded-xl overflow-hidden"
+                className="group relative px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] text-black font-bold text-base sm:text-lg rounded-xl overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
                   Explore My World
-                  <ArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" />
                 </span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-[#00e5ff] to-[#00a8ff]"
@@ -181,13 +181,13 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute bottom-10 left-0 right-0 mx-auto flex flex-col items-center cursor-pointer w-40"
+            className="absolute bottom-6 sm:bottom-10 left-0 right-0 mx-auto flex flex-col items-center cursor-pointer w-32 sm:w-40"
             onClick={() => window.scrollTo({
               top: window.innerHeight,
               behavior: 'smooth'
             })}
           >
-            <span className="text-gray-400 text-sm mb-2">Scroll to discover</span>
+            <span className="text-gray-400 text-xs sm:text-sm mb-2">Scroll to discover</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
@@ -199,7 +199,7 @@ export default function Home() {
       </motion.div>
 
       {/* Quick Intro Section */}
-      <section className="bg-transparent py-24 px-6 relative overflow-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-10"></div>
         
         <div className="max-w-6xl mx-auto relative">
@@ -236,7 +236,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -10 }}
-                className="bg-gradient-to-b from-gray-900/30 to-black/30 backdrop-blur-md p-8 rounded-2xl border border-[#00a8ff]/30 hover:border-[#00a8ff]/50 hover:shadow-lg hover:shadow-[#00a8ff]/30 transition-all group shadow-lg shadow-[#00a8ff]/10"
+                className="bg-gradient-to-b from-gray-900/30 to-black/30 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-[#00a8ff]/30 hover:border-[#00a8ff]/50 hover:shadow-lg hover:shadow-[#00a8ff]/30 transition-all group shadow-lg shadow-[#00a8ff]/10"
               >
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00a8ff]/10 to-[#00e5ff]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Icon size={28} className="text-[#00e5ff]" />
@@ -255,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Scroll text highlights - animated underline on view */}
-      <section className="bg-transparent py-16 px-6 relative overflow-visible">
+      <section className="bg-transparent py-12 sm:py-16 px-4 sm:px-6 relative overflow-visible">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="max-w-4xl mx-auto text-center relative">
           {[
@@ -269,7 +269,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="text-xl md:text-2xl text-gray-200 mb-6 relative inline-block"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 sm:mb-6 relative inline-block px-2"
             >
               {line}
               <motion.span
@@ -285,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* Storytelling & Content Creation Section */}
-      <section className="bg-transparent py-24 px-6 relative overflow-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -301,17 +301,17 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
               <span className="text-white">Documenting My </span>
               <span className="gradient-text">Tech Journey</span>
             </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            <div className="h-1 w-24 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] mx-auto rounded-full mb-4 sm:mb-6"></div>
+            <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
               Through cinematic storytelling, I document the real journey of engineering — challenges, breakthroughs, and innovation moments.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -353,8 +353,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Highlights - continuous motion with enhanced neon glow */}
-      <section className="bg-transparent py-24 px-6 relative overflow-visible">
+      {/* Highlights - continuous motion with enhanced neon glow - HIDDEN */}
+      {/* <section className="bg-transparent py-24 px-6 relative overflow-visible hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="absolute -top-10 -left-10 w-[500px] h-[500px] bg-[#00e5ff]/8 rounded-full blur-[140px]"></div>
         <div className="absolute -bottom-10 -right-10 w-[420px] h-[420px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
@@ -367,7 +367,6 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-12 relative"
           >
-            {/* Neon glow behind heading */}
             <motion.div
               className="absolute left-1/2 -translate-x-1/2 -top-10 w-[720px] h-[240px] rounded-full blur-[140px] pointer-events-none"
               style={{ background: "radial-gradient(closest-side, rgba(0,232,255,0.20), rgba(0,168,255,0.10), transparent)" }}
@@ -415,10 +414,10 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Vision - 3D tilt with tron accents */}
-      <section className="bg-transparent py-24 px-6 relative overflow-visible">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-visible">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="absolute top-1/4 right-1/4 w-[520px] h-[520px] bg-[#00a8ff]/10 rounded-full blur-[150px]"></div>
 
@@ -430,14 +429,14 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-14"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
               <span className="text-white">Vision </span>
               <span className="gradient-text">Forward</span>
             </h2>
-            <p className="text-gray-300 max-w-3xl mx-auto">Crafting at the intersection of engineering, design, and cinematic storytelling — with a neon, modern, tron-inspired aesthetic.</p>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto px-4">Crafting at the intersection of engineering, design, and cinematic storytelling — with a neon, modern, tron-inspired aesthetic.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-[1200px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 perspective-[1200px]">
             {[{ Icon: Eye, title: "Clarity", desc: "Make complexity feel intuitive with clean UX" }, { Icon: Rocket, title: "Velocity", desc: "Ship fast without compromising quality" }, { Icon: Layers, title: "Depth", desc: "Blend content, product, and visuals" }].map(({ Icon, title, desc }, idx) => (
               <motion.div
                 key={idx}
@@ -446,7 +445,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
                 whileHover={{ rotateX: -6, rotateY: 6, z: 10 }}
-                className="relative bg-gradient-to-b from-gray-900/40 to-black/40 border border-[#00e5ff]/30 rounded-2xl p-8 backdrop-blur-md transform-gpu will-change-transform"
+                className="relative bg-gradient-to-b from-gray-900/40 to-black/40 border border-[#00e5ff]/30 rounded-2xl p-6 sm:p-8 backdrop-blur-md transform-gpu will-change-transform"
               >
                 <div className="absolute -top-1 -left-1 w-5 h-5 border-t-2 border-l-2 border-[#00e5ff]/70"></div>
                 <div className="absolute -top-1 -right-1 w-5 h-5 border-t-2 border-r-2 border-[#00e5ff]/70"></div>
@@ -465,7 +464,7 @@ export default function Home() {
       </section>
 
       {/* Behind the Scenes - media placeholders with cinematic fades */}
-      <section className="bg-transparent py-24 px-6 relative overflow-visible">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-visible">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="absolute bottom-0 left-1/3 w-[540px] h-[540px] bg-[#00e5ff]/8 rounded-full blur-[150px]"></div>
 
@@ -477,14 +476,14 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
               <span className="text-white">Behind the </span>
               <span className="gradient-text">Scenes</span>
             </h2>
-            <p className="text-gray-300">Peeks into process — from scripting to deployment.</p>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg px-4">Peeks into process — from scripting to deployment.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {[Camera, Video, Sparkles].map((Icon, i) => (
               <motion.div
                 key={i}
@@ -493,7 +492,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
                 whileHover={{ scale: 1.03 }}
-                className="relative h-56 rounded-2xl overflow-hidden border border-[#00a8ff]/30 bg-gradient-to-br from-gray-900/40 to-black/40"
+                className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border border-[#00a8ff]/30 bg-gradient-to-br from-gray-900/40 to-black/40"
               >
                 <div className="absolute inset-0 bg-[url('/section-2.jpg')] bg-cover bg-center opacity-30"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -519,7 +518,7 @@ export default function Home() {
       </section>
 
       {/* DevOps & AI/ML Learning - neon timeline */}
-      <section className="bg-transparent py-24 px-6 relative overflow-visible">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-visible">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="absolute top-10 left-10 w-[420px] h-[420px] bg-[#00a8ff]/10 rounded-full blur-[140px]"></div>
 
@@ -531,11 +530,11 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
               <span className="text-white">DevOps & </span>
               <span className="gradient-text">AI/ML Learning</span>
             </h2>
-            <p className="text-gray-300">A living track of skills — shipping, scaling, and learning smart.</p>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg px-4">A living track of skills — shipping, scaling, and learning smart.</p>
           </motion.div>
 
           <div className="relative pl-4">
@@ -547,7 +546,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="relative pl-16 py-6"
+                className="relative pl-12 sm:pl-16 py-4 sm:py-6"
               >
                 <motion.div
                   className="absolute left-0 top-6 w-12 h-12 rounded-xl bg-gradient-to-br from-[#00a8ff]/20 to-[#00e5ff]/20 border border-[#00e5ff]/40 flex items-center justify-center"
@@ -556,9 +555,9 @@ export default function Home() {
                 >
                   <Icon size={20} className="text-[#00e5ff]" />
                 </motion.div>
-                <div className="bg-gradient-to-b from-gray-900/40 to-black/40 border border-[#00a8ff]/30 rounded-2xl p-6">
-                  <p className="text-white font-semibold text-lg mb-1">{title}</p>
-                  <p className="text-gray-300 text-sm">{desc}</p>
+                <div className="bg-gradient-to-b from-gray-900/40 to-black/40 border border-[#00a8ff]/30 rounded-2xl p-4 sm:p-6">
+                  <p className="text-white font-semibold text-base sm:text-lg mb-1">{title}</p>
+                  <p className="text-gray-300 text-xs sm:text-sm">{desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -567,7 +566,7 @@ export default function Home() {
       </section>
 
       {/* Tech Expertise Section */}
-      <section className="bg-transparent py-24 px-6 relative overflow-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -583,14 +582,14 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
               <span className="text-white">Core </span>
               <span className="gradient-text">Expertise</span>
             </h2>
             <div className="h-1 w-24 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] mx-auto rounded-full"></div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { icon: Code, title: "Full-Stack", desc: "End-to-end development" },
               { icon: Cloud, title: "DevOps", desc: "Cloud infrastructure" },
@@ -606,7 +605,7 @@ export default function Home() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -10 }}
-                  className="bg-gradient-to-br from-gray-900/30 to-black/30 backdrop-blur-md p-6 rounded-xl border border-[#00a8ff]/30 hover:border-[#00a8ff]/50 transition-all group shadow-lg shadow-[#00a8ff]/10"
+                  className="bg-gradient-to-br from-gray-900/30 to-black/30 backdrop-blur-md p-4 sm:p-6 rounded-xl border border-[#00a8ff]/30 hover:border-[#00a8ff]/50 transition-all group shadow-lg shadow-[#00a8ff]/10"
                 >
                   <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00a8ff]/10 to-[#00e5ff]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Icon size={28} className="text-[#00e5ff]" />

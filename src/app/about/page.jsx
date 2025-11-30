@@ -140,15 +140,15 @@ export default function About() {
                     </div>
                     
                 <motion.img 
-                  src="/faisal-bgremoved.png" 
+                  src="/Faisal-fornow.png" 
                   alt="Faisal Haroon" 
-                  className="relative z-10 w-full h-full object-contain"
-                  initial={{ scale: 1.04, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
+                  className="relative z-10 w-full h-full object-cover"
+                  initial={{ scale: 1.15, opacity: 0 }}
+                  whileInView={{ scale: 1.1, opacity: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{
-                    scale: 1.03,
+                    scale: 1.15,
                     filter: "brightness(1.08) drop-shadow(0 0 20px rgba(0, 229, 255, 0.45))"
                   }}
                 />
@@ -171,26 +171,33 @@ export default function About() {
                 </motion.div>
                 
                 {/* Floating Particles Around Image */}
-                {[...Array(6)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-2 h-2 bg-[#00e5ff] rounded-full"
-                    style={{
-                      left: `${20 + i * 15}%`,
-                      top: `${10 + (i % 3) * 30}%`,
-                    }}
-                    animate={{
-                      y: [0, -20, 0],
-                      opacity: [0.3, 0.8, 0.3],
-                      scale: [1, 1.5, 1],
-                    }}
-                    transition={{
-                      duration: 2 + i * 0.3,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                    }}
-                  />
-                ))}
+                {[...Array(6)].map((_, i) => {
+                  // Generate random positions based on index (deterministic but random-looking)
+                  const randomLeft = 10 + (Math.sin(i * 2.7) * 0.5 + 0.5) * 80;
+                  const randomTop = 10 + (Math.cos(i * 3.1) * 0.5 + 0.5) * 80;
+                  
+                  return (
+                    <motion.div
+                      key={i}
+                      className="absolute w-2 h-2 bg-[#00e5ff] rounded-full"
+                      style={{
+                        left: `${randomLeft}%`,
+                        top: `${randomTop}%`,
+                      }}
+                      animate={{
+                        y: [0, -15, 0],
+                        opacity: [0.05, 0.12, 0.05],
+                        scale: [1, 1.3, 1],
+                      }}
+                      transition={{
+                        duration: 6 + i * 0.8,
+                        repeat: Infinity,
+                        delay: i * 0.5,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  );
+                })}
               </motion.div>
             </motion.div>
 

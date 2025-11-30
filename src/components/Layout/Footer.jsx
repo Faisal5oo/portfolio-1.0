@@ -72,11 +72,11 @@ const Footer = () => {
                   whileHover={{ scale: 1.05 }}
                   className="relative h-12 w-12 rounded-full overflow-hidden border border-[#00a8ff]/40 shadow-[0_0_24px_rgba(0,168,255,0.45)]"
                 >
-                  <Image src="/faisal-bgremoved.png" alt="Faisal" fill className="object-cover rounded-full aspect-square relative z-10 select-none" />
+                  <Image src="/Faisal-fornow.png" alt="Faisal" fill className="object-cover rounded-full aspect-square relative z-10 select-none" />
                 </motion.div>
                 <div>
                   <h3 className="text-white font-bold text-lg font-orbitron">Faisal Haroon</h3>
-                  <p className="text-gray-400 text-sm">Engineer. Creator. Visionary.</p>
+                  <p className="text-gray-400 text-sm">Engineer, Learner, Creator</p>
                 </div>
               </div>
             </Link>

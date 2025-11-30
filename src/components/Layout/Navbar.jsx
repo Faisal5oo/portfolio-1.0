@@ -66,7 +66,7 @@ export default function Navbar() {
                 className="relative h-10 w-10 rounded-full overflow-hidden border border-[#00a8ff]/40 shadow-[0_0_24px_rgba(0,168,255,0.45)]"
                 whileHover={{ scale: 1.04 }}
               >
-                <Image src="/faisal-bgremoved.png" alt="Faisal" fill className="object-cover rounded-full aspect-square relative z-10 select-none" />
+                <Image src="/Faisal-fornow.png" alt="Faisal" fill className="object-cover rounded-full aspect-square relative z-10 select-none" />
               </motion.div>
               {/* Animated Text */}
               <motion.span
