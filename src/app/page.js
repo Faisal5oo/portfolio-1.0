@@ -48,7 +48,7 @@ export default function Home() {
       {/* Hero Section */}
       <motion.div 
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-x-hidden"
         style={{ opacity: heroOpacity, scale: heroScale }}
       >
         {/* Animated Background Particles */}
@@ -92,15 +92,15 @@ export default function Home() {
         </div>
 
         {/* Title Ellipse Glow Background */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#00a8ff]/15 via-[#00e5ff]/10 to-[#00a8ff]/15 rounded-full blur-[150px]"></div>
-          <div className="absolute top-1/3 right-1/4 w-[600px] h-[300px] bg-[#00e5ff]/8 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-[500px] h-[250px] bg-[#00a8ff]/8 rounded-full blur-[100px]"></div>
+        <div className="absolute inset-0 pointer-events-none overflow-visible">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[200px] sm:h-[300px] md:h-[400px] bg-gradient-to-r from-[#00a8ff]/15 via-[#00e5ff]/10 to-[#00a8ff]/15 rounded-full blur-[150px]"></div>
+          <div className="absolute top-1/3 right-1/4 w-[300px] sm:w-[400px] md:w-[600px] h-[150px] sm:h-[200px] md:h-[300px] bg-[#00e5ff]/8 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-[250px] sm:w-[350px] md:w-[500px] h-[125px] sm:h-[175px] md:h-[250px] bg-[#00a8ff]/8 rounded-full blur-[100px]"></div>
         </div>
 
         {/* Cyan glow shadow near footer-left behind the main title */}
         <motion.div
-          className="absolute bottom-8 left-6 w-[420px] h-[420px] rounded-full blur-[140px] pointer-events-none"
+          className="absolute bottom-8 left-0 sm:left-6 w-[200px] sm:w-[300px] md:w-[420px] h-[200px] sm:h-[300px] md:h-[420px] rounded-full blur-[140px] pointer-events-none"
           style={{ background: "radial-gradient(closest-side, rgba(0,232,255,0.18), rgba(0,168,255,0.08), transparent)" }}
           animate={{ opacity: [0.2, 0.45, 0.2], scale: [1, 1.04, 1] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -199,7 +199,7 @@ export default function Home() {
       </motion.div>
 
       {/* Quick Intro Section */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
         <div className="absolute inset-0 grid-pattern opacity-10"></div>
         
         <div className="max-w-6xl mx-auto relative">
@@ -255,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Scroll text highlights - animated underline on view */}
-      <section className="bg-transparent py-12 sm:py-16 px-4 sm:px-6 relative overflow-visible">
+      <section className="bg-transparent py-12 sm:py-16 px-4 sm:px-6 relative overflow-x-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="max-w-4xl mx-auto text-center relative">
           {[
@@ -285,12 +285,12 @@ export default function Home() {
       </section>
 
       {/* Storytelling & Content Creation Section */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/2 left-1/4 w-[600px] h-[300px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[250px] bg-[#00e5ff]/8 rounded-full blur-[110px]"></div>
+        <div className="absolute inset-0 pointer-events-none overflow-visible">
+          <div className="absolute top-1/2 left-1/4 w-[300px] sm:w-[400px] md:w-[600px] h-[150px] sm:h-[200px] md:h-[300px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[250px] sm:w-[350px] md:w-[500px] h-[125px] sm:h-[175px] md:h-[250px] bg-[#00e5ff]/8 rounded-full blur-[110px]"></div>
         </div>
         
         <div className="max-w-6xl mx-auto relative">
@@ -356,8 +356,8 @@ export default function Home() {
       {/* Highlights - continuous motion with enhanced neon glow - HIDDEN */}
       {/* <section className="bg-transparent py-24 px-6 relative overflow-visible hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
-        <div className="absolute -top-10 -left-10 w-[500px] h-[500px] bg-[#00e5ff]/8 rounded-full blur-[140px]"></div>
-        <div className="absolute -bottom-10 -right-10 w-[420px] h-[420px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
+        <div className="absolute -top-10 -left-0 sm:-left-10 w-[250px] sm:w-[350px] md:w-[500px] h-[250px] sm:h-[350px] md:h-[500px] bg-[#00e5ff]/8 rounded-full blur-[140px]"></div>
+        <div className="absolute -bottom-10 -right-0 sm:-right-10 w-[200px] sm:w-[300px] md:w-[420px] h-[200px] sm:h-[300px] md:h-[420px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
 
         <div className="max-w-6xl mx-auto relative">
           <motion.div
@@ -368,7 +368,7 @@ export default function Home() {
             className="text-center mb-12 relative"
           >
             <motion.div
-              className="absolute left-1/2 -translate-x-1/2 -top-10 w-[720px] h-[240px] rounded-full blur-[140px] pointer-events-none"
+              className="absolute left-1/2 -translate-x-1/2 -top-10 w-[90vw] max-w-[720px] h-[120px] sm:h-[180px] md:h-[240px] rounded-full blur-[140px] pointer-events-none"
               style={{ background: "radial-gradient(closest-side, rgba(0,232,255,0.20), rgba(0,168,255,0.10), transparent)" }}
               animate={{ opacity: [0.18, 0.42, 0.18], scale: [1, 1.03, 1] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -417,9 +417,9 @@ export default function Home() {
       </section> */}
 
       {/* Vision - 3D tilt with tron accents */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-visible">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
-        <div className="absolute top-1/4 right-1/4 w-[520px] h-[520px] bg-[#00a8ff]/10 rounded-full blur-[150px]"></div>
+        <div className="absolute top-1/4 right-1/4 w-[250px] sm:w-[350px] md:w-[520px] h-[250px] sm:h-[350px] md:h-[520px] bg-[#00a8ff]/10 rounded-full blur-[150px]"></div>
 
         <div className="max-w-6xl mx-auto relative">
           <motion.div
@@ -433,11 +433,11 @@ export default function Home() {
               <span className="text-white">Vision </span>
               <span className="gradient-text">Forward</span>
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto px-4">Crafting at the intersection of engineering, design, and cinematic storytelling — with a neon, modern, tron-inspired aesthetic.</p>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto px-4">Building useful, clear, and visually polished digital experiences through engineering, design, and storytelling.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 perspective-[1200px]">
-            {[{ Icon: Eye, title: "Clarity", desc: "Make complexity feel intuitive with clean UX" }, { Icon: Rocket, title: "Velocity", desc: "Ship fast without compromising quality" }, { Icon: Layers, title: "Depth", desc: "Blend content, product, and visuals" }].map(({ Icon, title, desc }, idx) => (
+            {[{ Icon: Eye, title: "Clarity", desc: "Make complex things feel simple and easy to understand." }, { Icon: Rocket, title: "Velocity", desc: "Move fast, stay consistent, and improve with every iteration." }, { Icon: Layers, title: "Depth", desc: "Think deeply, build intentionally, and merge creativity with solid engineering." }].map(({ Icon, title, desc }, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
@@ -464,9 +464,9 @@ export default function Home() {
       </section>
 
       {/* Behind the Scenes - media placeholders with cinematic fades */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-visible">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
-        <div className="absolute bottom-0 left-1/3 w-[540px] h-[540px] bg-[#00e5ff]/8 rounded-full blur-[150px]"></div>
+        <div className="absolute bottom-0 left-1/3 w-[250px] sm:w-[350px] md:w-[540px] h-[250px] sm:h-[350px] md:h-[540px] bg-[#00e5ff]/8 rounded-full blur-[150px]"></div>
 
         <div className="max-w-6xl mx-auto relative">
           <motion.div
@@ -518,9 +518,9 @@ export default function Home() {
       </section>
 
       {/* DevOps & AI/ML Learning - neon timeline */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-visible">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
-        <div className="absolute top-10 left-10 w-[420px] h-[420px] bg-[#00a8ff]/10 rounded-full blur-[140px]"></div>
+        <div className="absolute top-10 left-0 sm:left-10 w-[200px] sm:w-[300px] md:w-[420px] h-[200px] sm:h-[300px] md:h-[420px] bg-[#00a8ff]/10 rounded-full blur-[140px]"></div>
 
         <div className="max-w-6xl mx-auto relative">
           <motion.div
@@ -534,12 +534,12 @@ export default function Home() {
               <span className="text-white">DevOps & </span>
               <span className="gradient-text">AI/ML Learning</span>
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base md:text-lg px-4">A living track of skills — shipping, scaling, and learning smart.</p>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg px-4 max-w-3xl mx-auto">A transparent log of my current upskilling — moving from full-stack into DevOps, systems, and AI engineering. This is the first phase of my journey.</p>
           </motion.div>
 
           <div className="relative pl-4">
             <div className="absolute left-7 top-0 bottom-0 w-px bg-gradient-to-b from-[#00e5ff]/60 via-[#00a8ff]/40 to-transparent"></div>
-            {[{ Icon: Server, title: "Infra & CI/CD", desc: "Docker, GitHub Actions, Vercel, k8s basics" }, { Icon: Cpu, title: "ML Fundamentals", desc: "Data prep, training loops, inference" }, { Icon: Brain, title: "AI Systems", desc: "RAG, vector DBs, orchestrations" }, { Icon: LineChart, title: "Observability", desc: "Metrics, traces, error budgets" }].map(({ Icon, title, desc }, i) => (
+            {[{ Icon: Server, title: "Containerization & CI/CD", desc: "Docker, GitHub Actions, Amazon EC2 servers foundations for shipping production-ready apps." }, { Icon: Brain, title: "AI Systems", desc: "RAG, vector DBs, agents, orchestration and real-world experimentation." }].map(({ Icon, title, desc }, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, x: -30 }}
@@ -566,12 +566,12 @@ export default function Home() {
       </section>
 
       {/* Tech Expertise Section */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/3 right-1/3 w-[700px] h-[350px] bg-gradient-to-r from-[#00a8ff]/12 via-[#00e5ff]/8 to-[#00a8ff]/12 rounded-full blur-[140px]"></div>
-          <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[250px] bg-[#00e5ff]/8 rounded-full blur-[120px]"></div>
+        <div className="absolute inset-0 pointer-events-none overflow-visible">
+          <div className="absolute top-1/3 right-1/3 w-[300px] sm:w-[450px] md:w-[700px] h-[150px] sm:h-[225px] md:h-[350px] bg-gradient-to-r from-[#00a8ff]/12 via-[#00e5ff]/8 to-[#00a8ff]/12 rounded-full blur-[140px]"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-[250px] sm:w-[350px] md:w-[500px] h-[125px] sm:h-[175px] md:h-[250px] bg-[#00e5ff]/8 rounded-full blur-[120px]"></div>
         </div>
         
         <div className="max-w-6xl mx-auto relative">
@@ -591,10 +591,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { icon: Code, title: "Full-Stack", desc: "End-to-end development" },
-              { icon: Cloud, title: "DevOps", desc: "Cloud infrastructure" },
-              { icon: Cpu, title: "AI/ML", desc: "Machine learning" },
-              { icon: Video, title: "Content", desc: "Technical storytelling" }
+              { icon: Code, title: "Full-Stack", desc: "End-to-end development", inProgress: false },
+              { icon: Cloud, title: "DevOps", desc: "Cloud infrastructure", inProgress: true },
+              { icon: Cpu, title: "AI/ML", desc: "Machine learning", inProgress: true },
+              { icon: Video, title: "Content", desc: "Technical storytelling", inProgress: false }
             ].map((item, index) => {
               const Icon = item.icon;
               return (
@@ -605,13 +605,35 @@ export default function Home() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -10 }}
-                  className="bg-gradient-to-br from-gray-900/30 to-black/30 backdrop-blur-md p-4 sm:p-6 rounded-xl border border-[#00a8ff]/30 hover:border-[#00a8ff]/50 transition-all group shadow-lg shadow-[#00a8ff]/10"
+                  className={`bg-gradient-to-br from-gray-900/30 to-black/30 backdrop-blur-md p-4 sm:p-6 rounded-xl border transition-all group shadow-lg ${
+                    item.inProgress 
+                      ? 'border-gray-700/50 hover:border-gray-600/50 shadow-gray-900/10' 
+                      : 'border-[#00a8ff]/30 hover:border-[#00a8ff]/50 shadow-[#00a8ff]/10'
+                  }`}
                 >
-                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-[#00a8ff]/10 to-[#00e5ff]/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Icon size={28} className="text-[#00e5ff]" />
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${
+                    item.inProgress 
+                      ? 'bg-gradient-to-br from-gray-800/20 to-gray-900/20' 
+                      : 'bg-gradient-to-br from-[#00a8ff]/10 to-[#00e5ff]/10'
+                  }`}>
+                    <Icon size={28} className={item.inProgress ? "text-gray-500" : "text-[#00e5ff]"} />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2 group-hover:text-[#00e5ff] transition-colors">{item.title}</h3>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className={`font-bold text-lg group-hover:transition-colors ${
+                      item.inProgress ? 'text-gray-400' : 'text-white group-hover:text-[#00e5ff]'
+                    }`}>{item.title}</h3>
+                    {item.inProgress && (
+                      <span className="text-xs text-gray-500 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-500 animate-pulse"></span>
+                      </span>
+                    )}
+                  </div>
+                  <p className={`text-sm ${item.inProgress ? 'text-gray-500' : 'text-gray-400'}`}>{item.desc}</p>
+                  {item.inProgress && (
+                    <div className="mt-3 pt-3 border-t border-gray-800/50">
+                      <p className="text-xs text-gray-600 italic">Currently learning</p>
+                    </div>
+                  )}
                 </motion.div>
               );
             })}

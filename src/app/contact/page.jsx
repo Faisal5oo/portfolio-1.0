@@ -269,7 +269,7 @@ export default function Contact() {
                 <h3 className="text-white font-bold mb-4">Connect With Me</h3>
                 <div className="space-y-3">
                   <a
-                    href="https://linkedin.com/in/faisalharoon"
+                    href="https://www.linkedin.com/in/faisal-haroon500/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-lg bg-black/40 hover:bg-[#00a8ff]/10 border border-transparent hover:border-[#00a8ff]/30 transition-all group"
@@ -279,7 +279,7 @@ export default function Contact() {
                     <ExternalLink size={14} className="ml-auto text-gray-500 group-hover:text-[#00e5ff] transition-colors" />
                   </a>
                   <a
-                    href="https://github.com/faisalharoon"
+                    href="https://github.com/Faisal5oo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-lg bg-black/40 hover:bg-[#00a8ff]/10 border border-transparent hover:border-[#00a8ff]/30 transition-all group"

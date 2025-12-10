@@ -1,70 +1,125 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LayoutWrapper from "../../components/Layout/LayoutWrapper";
-import { X, ExternalLink, Github, ShoppingCart, Brain, Container, BarChart3, Building2, Film } from "lucide-react";
+import { X, ExternalLink, Github, ShoppingCart, Brain, Container, BarChart3, Building2, Film, Users, Briefcase, Globe, Image, Video, Calendar, Store, Tv } from "lucide-react";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Clokify",
       category: "Full-Stack",
-      description: "A scalable e-commerce solution built with MERN stack, featuring real-time inventory management and secure payment integration.",
-      tech: ["React", "Node.js", "MongoDB", "Express"],
-      icon: ShoppingCart,
+      description: "Initiated and crafted the frontend from scratch for this Human Resource Management System, overcoming the challenges of being a novice. Significantly enhanced proficiency in Material UI within React.js and gained familiarity with Redux Toolkit for efficient state management. Demonstrated adaptability and problem-solving skills, highlighting a commitment to delivering high-quality and innovative solutions.",
+      tech: ["React.js", "Material UI", "Redux Toolkit"],
+      icon: Users,
       link: "#",
       github: "#"
     },
     {
       id: 2,
-      title: "AI Content Generator",
-      category: "AI/ML",
-      description: "Leveraging machine learning to generate creative content with natural language processing and deep learning models.",
-      tech: ["Python", "TensorFlow", "OpenAI API", "Next.js"],
-      icon: Brain,
+      title: "POS E-commerce",
+      category: "Full-Stack",
+      description: "My role encompassed comprehensive frontend and backend development, presenting a valuable opportunity to master Node.js and Express.js. This hands-on experience also extended to database management, particularly with Postgres. The exposure to these technologies has significantly enriched my skill set, fostering a nuanced understanding of server-side development and enhancing my proficiency in creating robust and scalable applications.",
+      tech: ["Node.js", "Express.js", "PostgreSQL"],
+      icon: ShoppingCart,
       link: "#",
       github: "#"
     },
     {
       id: 3,
-      title: "DevOps Dashboard",
-      category: "DevOps",
-      description: "A comprehensive monitoring dashboard for containerized applications using Docker and Kubernetes.",
-      tech: ["Kubernetes", "Docker", "React", "Prometheus"],
-      icon: Container,
+      title: "BarterX Exchange",
+      category: "Full-Stack",
+      description: "Developed a full-stack web platform that allows users to trade or exchange items without cash by listing products, applying filters (price, location), and sending barter requests. Implemented real-time chat using Socket.io and built a notification system for transaction updates. Integrated JWT-based user authentication to ensure secure login and user management.",
+      tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.io", "JWT"],
+      icon: Briefcase,
       link: "#",
       github: "#"
     },
     {
       id: 4,
-      title: "Social Media Analytics",
+      title: "Green Entertainment",
       category: "Full-Stack",
-      description: "Real-time analytics platform for social media metrics with interactive dashboards and data visualization.",
-      tech: ["Next.js", "PostgreSQL", "Chart.js", "TypeScript"],
-      icon: BarChart3,
+      description: "Developed a complete CMS and public-facing website for Green Entertainment, a national TV channel. Designed and implemented the admin panel for content management. Built RESTful APIs and integrated them with the frontend for real-time content updates. Ensured responsive, user-friendly UI across all device sizes. Collaborated with cross-functional teams to align with brand and business requirements. Delivered a scalable, production-ready solution from scratch.",
+      tech: ["Next.js", "Node.js", "Express.js", "PostgreSQL", "Tailwind CSS"],
+      icon: Tv,
       link: "#",
       github: "#"
     },
     {
       id: 5,
-      title: "Microservices Architecture",
-      category: "Backend",
-      description: "Scalable microservices architecture with service mesh, API gateway, and distributed system patterns.",
-      tech: ["Node.js", "Docker", "Kubernetes", "gRPC"],
+      title: "hytGenx",
+      category: "Frontend",
+      description: "Independently built the official website for a software company. Designed a futuristic, AI-themed aesthetic reflecting the company's services. Ensured full mobile responsiveness and performance optimization. Handled complete end-to-end development and deployment.",
+      tech: ["Next.js", "Tailwind CSS"],
       icon: Building2,
       link: "#",
       github: "#"
     },
     {
       id: 6,
-      title: "Video Streaming Platform",
+      title: "AI-Powered Social Media Campaign Tool",
+      category: "AI/ML",
+      description: "Built a full-stack AI tool for automating social media campaign generation and scheduling. Integrated Google OAuth and JWT authentication alongside email/password login. Collaborated with AI team to auto-generate titles, hashtags, images using AI agents. Enabled automatic scheduling and publishing to Facebook/Instagram.",
+      tech: ["Next.js", "Tailwind CSS", "React Query", "Python", "FastAPI", "MongoDB"],
+      icon: Brain,
+      link: "#",
+      github: "#"
+    },
+    {
+      id: 7,
+      title: "Realtor.Ai",
+      category: "AI/ML",
+      description: "Built a dashboard for real-time customer support handled by AI agents. Displayed customer data, AI chat transcripts, and call metadata in a clean UI. Enabled smooth integration of AI customer service agents with dashboard functions.",
+      tech: ["Next.js", "Tailwind CSS", "MongoDB"],
+      icon: Brain,
+      link: "#",
+      github: "#"
+    },
+    {
+      id: 8,
+      title: "Client Demo Websites for AI Tools",
+      category: "Frontend",
+      description: "Developed 3 responsive demo websites for internal AI tools presentation. Integrated Calendly for seamless Google Meet booking. Played a key role in client onboarding and product pitching.",
+      tech: ["Next.js", "Tailwind CSS"],
+      icon: Globe,
+      link: "#",
+      github: "#"
+    },
+    {
+      id: 9,
+      title: "Siidi Fashion Muslim",
       category: "Full-Stack",
-      description: "High-performance video streaming platform with adaptive bitrate streaming and real-time chat.",
-      tech: ["Next.js", "WebRTC", "Node.js", "Redis"],
-      icon: Film,
+      description: "Led development of a feature-rich e-commerce platform for a U.S. fashion brand. Supported multilingual product management, custom order workflows, and real-time chat. Included dynamic pricing logic and analytics dashboard. Managed end-to-end system design, technical documentation, and deployment.",
+      tech: ["Next.js", "Tailwind CSS", "Express.js", "MongoDB"],
+      icon: Store,
+      link: "#",
+      github: "#"
+    },
+    {
+      id: 10,
+      title: "AI-Powered Image Editor",
+      category: "AI/ML",
+      description: "Enhanced an image editor with AI capabilities including upscaling, magic eraser, and cut-and-fill features. Contributed to new feature development and bug fixing for real-time image processing. Utilized Gemini AI models for intelligent visual editing.",
+      tech: ["React.js", "Firebase Cloud Functions", "Gemini AI"],
+      icon: Image,
+      link: "#",
+      github: "#"
+    },
+    {
+      id: 11,
+      title: "ClipsFlick",
+      category: "Full-Stack",
+      description: "Designed and implemented a platform for video creators to submit content for licensing. Integrated referral-based submission via unique employee-generated links. Enabled secure uploads of video, signatures, and agreements. Used Cloudflare R2 for scalable video storage and GoDaddy for domain management. Delivered complete system from architecture to deployment and cost optimization.",
+      tech: ["Next.js", "Cloudflare R2"],
+      icon: Video,
       link: "#",
       github: "#"
     }
@@ -84,8 +139,9 @@ export default function Projects() {
         <div className="max-w-6xl mx-auto relative z-10 w-full text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isMounted ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            suppressHydrationWarning
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-4">
               <span className="text-white">My </span>
@@ -115,13 +171,14 @@ export default function Projects() {
               return (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={isMounted ? { opacity: 0, y: 30 } : { opacity: 1, y: 0 }}
+                whileInView={isMounted ? { opacity: 1, y: 0 } : false}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -10 }}
+                whileHover={isMounted ? { y: -10 } : {}}
                 className="group cursor-pointer"
                 onClick={() => setSelectedProject(project)}
+                suppressHydrationWarning
               >
                 <div className="relative bg-gradient-to-br from-gray-900/30 to-black/30 backdrop-blur-md p-8 rounded-2xl border border-[#00a8ff]/30 hover:border-[#00a8ff]/50 transition-all h-full overflow-hidden shadow-lg shadow-[#00a8ff]/10">
                   {/* 3D Effect Background */}
@@ -139,30 +196,40 @@ export default function Projects() {
                   
                   {/* Content */}
                   <div className="relative z-10">
-                    <h3 className="text-white text-2xl font-bold mb-3 group-hover:text-[#00e5ff] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 mb-4 line-clamp-3">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="text-white text-2xl font-bold group-hover:text-[#00e5ff] transition-colors">
+                        {project.title}
+                      </h3>
+                    </div>
+                    {project.period && (
+                      <p className="text-gray-500 text-sm mb-3 italic">{project.period}</p>
+                    )}
+                    <p className="text-gray-400 mb-4 line-clamp-4 leading-relaxed">
                       {project.description}
                     </p>
                     
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.slice(0, 3).map((tech, techIndex) => (
+                      {project.tech.slice(0, 4).map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-1 rounded bg-gray-900 text-gray-300 text-xs"
+                          className="px-2 py-1 rounded bg-gray-900/50 text-gray-300 text-xs border border-gray-800"
                         >
                           {tech}
                         </span>
                       ))}
+                      {project.tech.length > 4 && (
+                        <span className="px-2 py-1 rounded bg-gray-900/50 text-gray-500 text-xs border border-gray-800">
+                          +{project.tech.length - 4} more
+                        </span>
+                      )}
                     </div>
                     
-                    {/* View Project Link */}
-                    <div className="flex items-center text-[#00e5ff] font-medium group-hover:gap-2 transition-all">
+                    {/* View Project Link - Hidden for now */}
+                    {/* <div className="flex items-center text-[#00e5ff] font-medium group-hover:gap-2 transition-all">
                       <span>View Project</span>
                       <ExternalLink size={16} className="ml-1 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </div>
+                    </div> */}
                   </div>
                   
                   {/* Glow Effect on Hover */}
@@ -212,9 +279,13 @@ export default function Projects() {
                 {selectedProject.category}
               </span>
               
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 {selectedProject.title}
               </h2>
+              
+              {selectedProject.period && (
+                <p className="text-gray-500 text-sm mb-4 italic">{selectedProject.period}</p>
+              )}
               
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
                 {selectedProject.description}
@@ -235,8 +306,8 @@ export default function Projects() {
                 </div>
               </div>
               
-              {/* Action Buttons */}
-              <div className="flex gap-4">
+              {/* Action Buttons - Hidden for now */}
+              {/* <div className="flex gap-4">
                 <a
                   href={selectedProject.link}
                   target="_blank"
@@ -255,7 +326,7 @@ export default function Projects() {
                   <Github size={18} />
                   GitHub
                 </a>
-              </div>
+              </div> */}
             </motion.div>
           </motion.div>
         )}

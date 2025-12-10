@@ -2,7 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import LayoutWrapper from "../../components/Layout/LayoutWrapper";
-import { Code, Video, Brain, Rocket } from "lucide-react";
+import { Code, Video, Brain, Rocket, Briefcase } from "lucide-react";
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -12,28 +12,28 @@ export default function About() {
 
   const timelineData = [
     {
-      year: "2024",
-      title: "DevOps & AI Journey Begins",
-      description: "Diving deep into containerization, orchestration, and machine learning fundamentals",
-      icon: Rocket
+      year: "2025",
+      period: "11/2025 - Present",
+      title: "Learning DevOps & AI",
+      description: "Focusing on containerization, CI/CD, AI systems, and machine learning fundamentals",
+      icon: Rocket,
+      location: ""
     },
     {
-      year: "2023",
-      title: "Full-Stack Development",
-      description: "Mastering MERN stack and building scalable web applications",
-      icon: Code
+      year: "2024-2025",
+      period: "11/2024 – 09/2025",
+      title: "Software Engineer",
+      description: "hytGenx - Lahore, Pakistan. Building scalable applications and contributing to innovative software solutions",
+      icon: Briefcase,
+      location: "Lahore, Pakistan"
     },
     {
-      year: "2022",
-      title: "Content Creation Starts",
-      description: "Exploring cinematic storytelling and creating engaging video content",
-      icon: Video
-    },
-    {
-      year: "2021",
-      title: "Engineering Foundation",
-      description: "Building the foundation in software engineering and problem-solving",
-      icon: Brain
+      year: "2023-2024",
+      period: "06/2023 – 08/2024",
+      title: "Jr. MERN Stack Developer",
+      description: "Beyond Technology - Lahore, Pakistan. Started as an intern, evolved into a junior developer role, mastering MERN stack and building production-ready applications",
+      icon: Briefcase,
+      location: "Lahore, Pakistan"
     }
   ];
 
@@ -374,9 +374,17 @@ export default function About() {
                           <div className="p-2 rounded-lg bg-[#00a8ff]/10 text-[#00e5ff]">
                             <Icon size={20} />
                           </div>
-                          <span className="text-[#00e5ff] font-bold">{item.year}</span>
+                          <div className="flex flex-col">
+                            <span className="text-[#00e5ff] font-bold">{item.year}</span>
+                            {item.period && (
+                              <span className="text-gray-500 text-xs">{item.period}</span>
+                            )}
+                          </div>
                         </div>
                         <h3 className="text-white text-xl font-bold mb-2">{item.title}</h3>
+                        {item.location && (
+                          <p className="text-gray-500 text-sm mb-2">{item.location}</p>
+                        )}
                         <p className="text-gray-400">{item.description}</p>
                       </motion.div>
                     </div>

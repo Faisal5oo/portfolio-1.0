@@ -145,22 +145,22 @@ const Footer = () => {
               Connect
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] rounded-full"></div>
             </h3>
-            <div className="bg-gradient-to-br from-[#00a8ff]/10 to-black p-6 rounded-xl border border-[#00a8ff]/20 hover:border-[#00a8ff]/30 transition-colors">
+            <Link 
+              href="/contact"
+              className="block bg-gradient-to-br from-[#00a8ff]/10 to-black p-6 rounded-xl border border-[#00a8ff]/20 hover:border-[#00a8ff]/30 transition-colors cursor-pointer group"
+            >
               <div className="flex items-start mb-2">
                 <Mail className="text-[#00e5ff] mt-1 mr-3 flex-shrink-0" size={18} />
                 <div>
                   <p className="text-white mb-1 font-medium">Let's Build Together</p>
-                  <a 
-                    href="mailto:faisal@example.com" 
-                    className="text-gray-400 hover:text-[#00e5ff] transition-colors inline-flex items-center group"
-                  >
+                  <span className="text-gray-400 group-hover:text-[#00e5ff] transition-colors inline-flex items-center">
                     Get in Touch
                     <ArrowUpRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                  </a>
+                  </span>
                 </div>
               </div>
               <p className="text-gray-500 text-sm mt-4">Open to collaborations and opportunities.</p>
-            </div>
+            </Link>
           </motion.div>
         </div>
         

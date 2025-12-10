@@ -19,7 +19,7 @@ export default function Layout({ children }) {
     ), []);
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen overflow-x-hidden max-w-full">
             <CursorGlow />
             {/* Global subtle floating particles */}
             <div className="pointer-events-none fixed inset-0 z-[5]">
@@ -49,7 +49,7 @@ export default function Layout({ children }) {
             <Navbar />
 
             {/* Main Content */}
-            <main className="flex-grow">
+            <main className="flex-grow overflow-x-hidden max-w-full">
                 {children}
             </main>
 

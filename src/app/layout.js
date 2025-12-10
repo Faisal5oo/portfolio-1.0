@@ -20,9 +20,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
       <body
-        className={`${orbitron.variable} ${inter.variable} antialiased`}
+        className={`${orbitron.variable} ${inter.variable} antialiased overflow-x-hidden`}
         style={{
           backgroundImage: `
             linear-gradient(rgba(0, 168, 255, 0.06) 1px, transparent 1px),

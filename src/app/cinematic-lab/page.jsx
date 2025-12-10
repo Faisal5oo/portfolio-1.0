@@ -227,7 +227,7 @@ export default function CinematicLab() {
               Join me on LinkedIn for regular updates on engineering insights, AI exploration, and cinematic content.
             </p>
             <a
-              href="https://linkedin.com/in/faisalharoon"
+              href="https://www.linkedin.com/in/faisal-haroon500/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] text-black font-bold rounded-lg hover:shadow-lg hover:shadow-[#00a8ff]/30 transition-all"
