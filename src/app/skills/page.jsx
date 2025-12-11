@@ -122,7 +122,7 @@ export default function Skills() {
   return (
     <LayoutWrapper>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center py-20 px-6 overflow-x-hidden">
+      <section className="relative min-h-[60vh] flex items-center py-20 px-6 overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-10"></div>
         {/* Title Ellipse Glow */}
         <div className="absolute inset-0 pointer-events-none overflow-visible">
@@ -150,7 +150,7 @@ export default function Skills() {
       </section>
 
       {/* Tech Stack Grid */}
-      <section ref={techStackRef} className="bg-transparent py-24 px-6 relative overflow-x-hidden">
+      <section ref={techStackRef} className="bg-transparent py-24 px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
         <div className="absolute inset-0 pointer-events-none overflow-visible">
@@ -197,7 +197,7 @@ export default function Skills() {
       </section>
 
       {/* Skills with Progress Bars */}
-      <section ref={skillsRef} className="bg-transparent py-24 px-6 relative overflow-x-hidden">
+      <section ref={skillsRef} className="bg-transparent py-24 px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         
         <div className="max-w-6xl mx-auto relative">

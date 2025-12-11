@@ -64,7 +64,7 @@ export default function Contact() {
 
   return (
     <LayoutWrapper>
-      <div className="min-h-screen flex items-center justify-center bg-transparent py-32 px-6 relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-transparent py-32 px-6 relative overflow-x-hidden overflow-y-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 grid-pattern opacity-10"></div>
         {/* Title Ellipse Glow */}
@@ -95,19 +95,8 @@ export default function Contact() {
             </h2>
             <div className="h-1 w-24 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] mx-auto rounded-full mb-6"></div>
             <p className="text-gray-300 max-w-2xl mx-auto text-lg mb-5">
-              I’m always looking for interesting collaborations, remote opportunities, or just a chat about tech & design.<br/>Based in Karachi, Pakistan.
+              I'm always open to meaningful collaborations, remote opportunities, or a conversation about engineering and growth.<br/>Based in Lahore, Pakistan.
             </p>
-            <div className="flex justify-center gap-4 mb-2">
-              <a href="https://twitter.com/faisalharoon" target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#00a8ff]/10 hover:bg-[#00e5ff]/15 p-3 transition-colors border border-[#00a8ff]/10 hover:border-[#00e5ff]/50 flex items-center text-[#00e5ff]">
-                <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M22.46 6c-.79.35-1.64.58-2.52.69.9-.54 1.59-1.4 1.91-2.42-.84.5-1.77.87-2.76 1.06A4.475 4.475 0 0015.5 4c-2.48 0-4.5 2.2-4.5 4.91 0 .38.04.76.12 1.12C7.7 9.86 5.17 8.56 3.4 6.49c-.41.75-.65 1.62-.65 2.54 0 1.76.85 3.31 2.15 4.23-.78-.02-1.5-.25-2.13-.61v.06c0 2.46 1.62 4.51 3.78 4.98-.39.11-.81.17-1.25.17-.3 0-.59-.03-.87-.08.6 1.99 2.36 3.44 4.44 3.48A9 9 0 012 20.65C4.16 22.17 6.82 23 9.74 23 15.5 23 20 17.73 20 12.27l-.01-.59A7.05 7.05 0 0024 5.02c-.63.29-1.31.5-2.03.69.73-.44 1.37-1.02 1.89-1.69z" fill="currentColor"/></svg>
-              </a>
-              <a href="https://instagram.com/faisalharoon" target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#00a8ff]/10 hover:bg-[#00e5ff]/15 p-3 transition-colors border border-[#00a8ff]/10 hover:border-[#00e5ff]/50 flex items-center text-[#00e5ff]">
-                <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="5" fill="none" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2"/><circle cx="17" cy="7" r="1.5" fill="currentColor"/></svg>
-              </a>
-              <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#00a8ff]/10 hover:bg-[#00e5ff]/15 p-3 transition-colors border border-[#00a8ff]/10 hover:border-[#00e5ff]/50 flex items-center text-[#00e5ff]">
-                <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M20.52 3.47A11.88 11.88 0 0012 1C6.49 1 2 5.49 2 11c0 2.04.54 3.94 1.57 5.64L1 23l6.6-2a11.37 11.37 0 004.4.9c5.51 0 10-4.49 10-10 0-2.85-1.14-5.52-3.2-7.53zm-8.52 17.1c-1.3 0-2.57-.21-3.77-.64l-.27-.1-3.91 1.17 1.12-3.78-.18-.27a8.9 8.9 0 01-1.37-4.81C3.14 6.82 7.1 3 12 3s8.87 3.82 8.87 8.48c0 4.67-4 8.49-8.87 8.49zm4.63-6.87c-.13-.05-.78-.38-1.14-.56-.31-.16-.53-.05-.71.12-.2.18-.33.35-.7.28-2.11-.43-3.53-2.42-3.67-2.54-.16-.18-.18-.37-.05-.54.09-.12.22-.3.33-.46.18-.27.09-.52-.02-.68-.1-.15-.66-1.62-.89-2.21-.14-.34-.28-.35-.42-.35-.1 0-.23-.02-.36-.02s-.33.05-.5.25a8.55 8.55 0 00-1.13 2.24c-.22.49-.44 1.36.05 2.24a9.13 9.13 0 002.84 3.17c.81.59 1.45.71 2 .56.3-.09.68-.42.87-.64.07-.08.13-.18.2-.18.1 0 .23.03.36.08.12.05.72.34.82.37.09.03.2.04.28-.09.12-.19.74-.88.8-.95.07-.08.14-.17.01-.22z" fill="currentColor"/></svg>
-              </a>
-            </div>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">

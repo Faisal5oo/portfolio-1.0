@@ -48,7 +48,7 @@ export default function Home() {
       {/* Hero Section */}
       <motion.div 
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-x-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-x-hidden overflow-y-hidden"
         style={{ opacity: heroOpacity, scale: heroScale }}
       >
         {/* Animated Background Particles */}
@@ -199,7 +199,7 @@ export default function Home() {
       </motion.div>
 
       {/* Quick Intro Section */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-10"></div>
         
         <div className="max-w-6xl mx-auto relative">
@@ -255,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* Scroll text highlights - animated underline on view */}
-      <section className="bg-transparent py-12 sm:py-16 px-4 sm:px-6 relative overflow-x-hidden">
+      <section className="bg-transparent py-12 sm:py-16 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="max-w-4xl mx-auto text-center relative">
           {[
@@ -285,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* Storytelling & Content Creation Section */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
         <div className="absolute inset-0 pointer-events-none overflow-visible">
@@ -417,11 +417,11 @@ export default function Home() {
       </section> */}
 
       {/* Vision - 3D tilt with tron accents */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="absolute top-1/4 right-1/4 w-[250px] sm:w-[350px] md:w-[520px] h-[250px] sm:h-[350px] md:h-[520px] bg-[#00a8ff]/10 rounded-full blur-[150px]"></div>
 
-        <div className="max-w-6xl mx-auto relative">
+        <div className="max-w-6xl mx-auto relative" style={{ padding: '2rem 0' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -445,7 +445,11 @@ export default function Home() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
                 whileHover={{ rotateX: -6, rotateY: 6, z: 10 }}
-                className="relative bg-gradient-to-b from-gray-900/40 to-black/40 border border-[#00e5ff]/30 rounded-2xl p-6 sm:p-8 backdrop-blur-md transform-gpu will-change-transform"
+                className="relative bg-gradient-to-b from-gray-900/40 to-black/40 border border-[#00e5ff]/30 rounded-2xl p-6 sm:p-8 backdrop-blur-md transform-gpu will-change-transform shadow-lg shadow-[#00e5ff]/20"
+                style={{ 
+                  boxShadow: '0 10px 40px rgba(0, 229, 255, 0.2), 0 0 20px rgba(0, 229, 255, 0.1)',
+                  margin: '1rem 0'
+                }}
               >
                 <div className="absolute -top-1 -left-1 w-5 h-5 border-t-2 border-l-2 border-[#00e5ff]/70"></div>
                 <div className="absolute -top-1 -right-1 w-5 h-5 border-t-2 border-r-2 border-[#00e5ff]/70"></div>
@@ -464,7 +468,7 @@ export default function Home() {
       </section>
 
       {/* Behind the Scenes - media placeholders with cinematic fades */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="absolute bottom-0 left-1/3 w-[250px] sm:w-[350px] md:w-[540px] h-[250px] sm:h-[350px] md:h-[540px] bg-[#00e5ff]/8 rounded-full blur-[150px]"></div>
 
@@ -518,7 +522,7 @@ export default function Home() {
       </section>
 
       {/* DevOps & AI/ML Learning - neon timeline */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         <div className="absolute top-10 left-0 sm:left-10 w-[200px] sm:w-[300px] md:w-[420px] h-[200px] sm:h-[300px] md:h-[420px] bg-[#00a8ff]/10 rounded-full blur-[140px]"></div>
 
@@ -566,7 +570,7 @@ export default function Home() {
       </section>
 
       {/* Tech Expertise Section */}
-      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
         <div className="absolute inset-0 pointer-events-none overflow-visible">

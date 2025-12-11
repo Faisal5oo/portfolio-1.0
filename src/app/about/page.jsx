@@ -214,10 +214,7 @@ export default function About() {
                   Who <span className="gradient-text">I Am</span>
                 </h2>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  I'm an engineer passionate about building the future through code, creativity, and innovation. 
-                  My journey spans full-stack development, DevOps engineering, and AI/ML exploration, 
-                  all while creating cinematic content that tells compelling stories about technology, engineering challenges, 
-                  and the art of building scalable systems.
+                  I'm a full-stack developer focused on building real, practical products. I work mainly with the MERN stack and Next.js, and I'm developing my skills in both DevOps and AI to become a more complete engineer. I enjoy creating things that are useful, structured, and meaningful whether it's software, systems, or digital content.
                 </p>
               </div>
 
@@ -227,10 +224,8 @@ export default function About() {
                   My <span className="gradient-text">Journey</span>
                 </h2>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Starting from software engineering fundamentals, I've evolved into a multi-faceted creator. 
-                  I build scalable applications, orchestrate cloud infrastructure, experiment with AI models, 
-                  and document my tech journey through cinematic storytelling. My content combines technical depth 
-                  with visual narratives, making complex engineering concepts accessible and inspiring on LinkedIn and beyond.
+                  I started with software engineering fundamentals and grew into full-stack development with hands-on project experience. Now, I'm expanding beyond coding applications into understanding infrastructure, automation, and modern AI tools.
+                  This phase of my journey is about leveling up learning DevOps, exploring AI, improving system design, and building my consistency through documentation and content.
                 </p>
               </div>
 
@@ -240,10 +235,8 @@ export default function About() {
                   Vision & <span className="gradient-text">Purpose</span>
                 </h2>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  My mission is to bridge the gap between technical excellence and creative expression. 
-                  Through cinematic storytelling, I document the real journey of engineering — the challenges, 
-                  breakthroughs, and moments of innovation. I believe the future belongs to those who can merge code 
-                  with storytelling, engineering with artistry, and innovation with human connection.
+                  Over time, I've realized that being "just a developer" isn't enough. To build meaningful things, you must understand products end-to-end — development, systems, deployment, communication, and audience.
+                  My purpose now is to become a well-rounded engineer who can build complete products and share the progress in a way that provides value to the tech community.
                 </p>
               </div>
             </motion.div>
