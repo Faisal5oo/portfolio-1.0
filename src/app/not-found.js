@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import LayoutWrapper from "@/components/Layout/LayoutWrapper";
+import LayoutWrapper from "../components/Layout/LayoutWrapper";
 import { Home, ArrowRight } from "lucide-react";
 
 export default function NotFound() {
