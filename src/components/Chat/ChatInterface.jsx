@@ -10,7 +10,7 @@ import Message from "./Message";
 import ThinkingIndicator from "./ThinkingIndicator";
 import QuickStartChips from "./QuickStartChips";
 
-const API_URL = "http://16.170.241.203/faisal-ai-twin/chat";
+const API_URL = "https://faisalharoon.mooo.com/faisal-ai-twin/chat";
 
 const DEFAULT_SUGGESTIONS = [
   "Tell me about your projects",
