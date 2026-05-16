@@ -111,7 +111,7 @@ export default function ChatInterface({
       setIsConnected(false);
 
       let errorMessage =
-        "Sorry — the AI server is currently unavailable. Please try again in a moment.";
+        `Sorry! the AI server is currently unavailable. Please try again in a moment. ${API_URL}`;
 
       if (error.code === "ECONNABORTED") {
         errorMessage =
