@@ -11,24 +11,36 @@ import ThinkingIndicator from "./ThinkingIndicator";
 import QuickStartChips from "./QuickStartChips";
 
 const API_URL = "https://faisalharoon.mooo.com/faisal-ai-twin/chat";
+// const API_URL = "http://localhost:8000/chat";
 
+// 1. Natural suggestions — not AI-sounding
 const DEFAULT_SUGGESTIONS = [
-  "Tell me about your projects",
-  "How can we collaborate?",
-  "What are you learning right now?",
-  "What services do you offer?",
+  "What have you been building lately?",
+  "I have a project in mind",
+  "What's your rate?",
+  "Walk me through your stack",
 ];
 
-export default function ChatInterface({
-  title,
-  subtitle,
-  aiAvatarSrc,
-}) {
+// 2. Persist session ID across page refreshes
+function getOrCreateSessionId() {
+  if (typeof window === "undefined") return uuidv4();
+  const key = "chatbot_session_id";
+  let sid = localStorage.getItem(key);
+  if (!sid) {
+    sid = uuidv4();
+    localStorage.setItem(key, sid);
+  }
+  return sid;
+}
+
+export default function ChatInterface({ title, subtitle, aiAvatarSrc }) {
+  const [sessionId] = useState(() => getOrCreateSessionId()); // 3. stable session ID
+
   const [messages, setMessages] = useState(() => [
     {
       id: "seed",
       sender: "ai",
-      text: "Hey — I’m your AI twin. Ask me anything about my work, projects, or how we can collaborate.",
+      text: "Hey — I'm your AI twin. Ask me anything about my work, projects, or how we can collaborate.",
       createdAtMs: Date.now(),
     },
   ]);
@@ -44,11 +56,7 @@ export default function ChatInterface({
 
   useEffect(() => {
     if (!bottomRef.current) return;
-
-    bottomRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-    });
+    bottomRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages.length, isThinking]);
 
   const convertHistoryForAPI = () => {
@@ -62,7 +70,6 @@ export default function ChatInterface({
 
   const submit = async (text) => {
     const trimmed = (text || "").trim();
-
     if (!trimmed || isThinking) return;
 
     const userMsg = {
@@ -84,12 +91,11 @@ export default function ChatInterface({
         {
           message: trimmed,
           history: convertHistoryForAPI(),
+          session_id: sessionId, // 4. pass session ID to backend
         },
         {
           timeout: 30000,
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
         }
       );
 
@@ -97,40 +103,22 @@ export default function ChatInterface({
         response?.data?.response ||
         "I received your message but couldn't generate a response.";
 
-      const aiMsg = {
-        id: uuidv4(),
-        sender: "ai",
-        text: aiReply,
-        createdAtMs: Date.now(),
-      };
-
-      setMessages((prev) => [...prev, aiMsg]);
+      setMessages((prev) => [
+        ...prev,
+        { id: uuidv4(), sender: "ai", text: aiReply, createdAtMs: Date.now() },
+      ]);
     } catch (error) {
       console.error("Chat API Error:", error);
-
       setIsConnected(false);
 
-      let errorMessage =
-        `Sorry! the AI server is currently unavailable. Please try again in a moment. ${API_URL}`;
+      let errorMessage = "Server's not responding right now. Try again in a moment.";
+      if (error.code === "ECONNABORTED") errorMessage = "Took too long to respond. Please try again.";
+      if (error.response?.status === 500) errorMessage = "Something went wrong on the backend. Try again shortly.";
 
-      if (error.code === "ECONNABORTED") {
-        errorMessage =
-          "The request took too long to respond. Please try again.";
-      }
-
-      if (error.response?.status === 500) {
-        errorMessage =
-          "The AI backend encountered an issue. Please try again shortly.";
-      }
-
-      const errorMsg = {
-        id: uuidv4(),
-        sender: "ai",
-        text: errorMessage,
-        createdAtMs: Date.now(),
-      };
-
-      setMessages((prev) => [...prev, errorMsg]);
+      setMessages((prev) => [
+        ...prev,
+        { id: uuidv4(), sender: "ai", text: errorMessage, createdAtMs: Date.now() },
+      ]);
     } finally {
       setIsThinking(false);
     }
@@ -163,21 +151,15 @@ export default function ChatInterface({
               <span className="relative flex h-2.5 w-2.5">
                 <span
                   className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-70 ${
-                    isConnected
-                      ? "bg-emerald-500/50"
-                      : "bg-red-500/50"
+                    isConnected ? "bg-emerald-500/50" : "bg-red-500/50"
                   }`}
                 />
-
                 <span
                   className={`relative inline-flex h-2.5 w-2.5 rounded-full ${
-                    isConnected
-                      ? "bg-emerald-500"
-                      : "bg-red-500"
+                    isConnected ? "bg-emerald-500" : "bg-red-500"
                   }`}
                 />
               </span>
-
               <span className="text-xs font-semibold tracking-wide text-white/70">
                 {isConnected ? "LIVE" : "OFFLINE"}
               </span>
@@ -187,10 +169,7 @@ export default function ChatInterface({
               <p className="truncate font-orbitron text-sm text-white sm:text-[15px]">
                 {title}
               </p>
-
-              <p className="truncate text-xs text-white/60">
-                {subtitle}
-              </p>
+              <p className="truncate text-xs text-white/60">{subtitle}</p>
             </div>
           </div>
 
@@ -200,7 +179,6 @@ export default function ChatInterface({
             ) : (
               <WifiOff className="h-4 w-4 text-red-400" />
             )}
-
             <span className="hidden text-xs sm:inline">
               {isConnected ? "Connected" : "Disconnected"}
             </span>
@@ -214,14 +192,18 @@ export default function ChatInterface({
             disabled={isThinking}
           />
 
-          <div className="mt-2 max-h-[62vh] space-y-3 overflow-y-auto rounded-2xl border border-white/10 bg-white/0 px-2 py-3 sm:px-3">
+          {/* 5. overflow-y-scroll (not auto) prevents layout shift when scrollbar appears */}
+          <div
+            className="mt-2 space-y-3 overflow-y-scroll rounded-2xl border border-white/10 bg-white/0 px-2 py-3 sm:px-3"
+            style={{
+              height: "clamp(280px, 52vh, 520px)",
+              scrollbarWidth: "thin",
+              scrollbarColor: "rgba(255,255,255,0.1) transparent",
+            }}
+          >
             <AnimatePresence initial={false}>
               {messages.map((m) => (
-                <Message
-                  key={m.id}
-                  message={m}
-                  aiAvatarSrc={aiAvatarSrc}
-                />
+                <Message key={m.id} message={m} aiAvatarSrc={aiAvatarSrc} />
               ))}
             </AnimatePresence>
 
@@ -241,6 +223,7 @@ export default function ChatInterface({
               Message
             </label>
 
+            {/* 6. overflow-hidden stops textarea briefly triggering page scroll on resize */}
             <textarea
               id={inputId}
               value={draft}
@@ -254,7 +237,7 @@ export default function ChatInterface({
               placeholder="Ask my AI twin…"
               rows={1}
               className={[
-                "min-h-[44px] flex-1 resize-none rounded-2xl px-4 py-3 text-sm text-white",
+                "min-h-[44px] flex-1 resize-none overflow-hidden rounded-2xl px-4 py-3 text-sm text-white",
                 "bg-white/5 ring-1 ring-white/10 backdrop-blur-md",
                 "placeholder:text-white/40",
                 "focus:outline-none focus:ring-2 focus:ring-[#00e5ff]/40",
