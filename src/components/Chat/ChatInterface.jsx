@@ -40,7 +40,7 @@ export default function ChatInterface({ title, subtitle, aiAvatarSrc }) {
     {
       id: "seed",
       sender: "ai",
-      text: "Hey — I'm your AI twin. Ask me anything about my work, projects, or how we can collaborate.",
+      text: "Hey I'm Faisal AI Twin. Ask me anything about my work, projects, or how we can collaborate.",
       createdAtMs: Date.now(),
     },
   ]);
@@ -94,7 +94,7 @@ export default function ChatInterface({ title, subtitle, aiAvatarSrc }) {
           session_id: sessionId, // 4. pass session ID to backend
         },
         {
-          timeout: 30000,
+          timeout: 120000,
           headers: { "Content-Type": "application/json" },
         }
       );

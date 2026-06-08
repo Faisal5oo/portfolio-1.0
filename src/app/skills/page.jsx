@@ -121,6 +121,10 @@ export default function Skills() {
 
   return (
     <LayoutWrapper>
+      <div className="relative top-[100px] inset-0 pointer-events-none overflow-visible">
+          <div className="absolute top-1/2 right-1/4 w-[600px] h-[300px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-[2s00px] h-[100px] bg-[#00e5ff]/8 rounded-full blur-[110px]"></div>
+        </div>
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center py-20 px-6 overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-10"></div>
@@ -138,8 +142,7 @@ export default function Skills() {
             }}
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              <span className="text-white">Engineering The Future, </span>
-              <span className="gradient-text">One Skill At A Time</span>
+              <span className="text-white">Engineering The Future</span>
             </h1>
             <div className="h-1 w-24 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] mx-auto rounded-full mt-6"></div>
             <p className="text-gray-300 text-xl mt-8 max-w-2xl mx-auto">
@@ -153,10 +156,7 @@ export default function Skills() {
       <section ref={techStackRef} className="bg-transparent py-24 px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
-        <div className="absolute inset-0 pointer-events-none overflow-visible">
-          <div className="absolute top-1/2 right-1/4 w-[600px] h-[300px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-[500px] h-[250px] bg-[#00e5ff]/8 rounded-full blur-[110px]"></div>
-        </div>
+        
         
         <div className="max-w-6xl mx-auto relative">
           <div

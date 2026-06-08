@@ -45,6 +45,10 @@ export default function Home() {
   
   return (
     <LayoutWrapper>
+      <div className="relative top-[100px] inset-0 pointer-events-none overflow-visible">
+          <div className="absolute top-1/2 right-1/4 w-[600px] h-[300px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-[2s00px] h-[100px] bg-[#00e5ff]/8 rounded-full blur-[110px]"></div>
+        </div>
       {/* Hero Section */}
       <motion.div 
         ref={heroRef}
@@ -84,27 +88,6 @@ export default function Home() {
           style={{ y: heroBgY }}
         />
 
-        {/* Ambient Glow Effects */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#00a8ff]/10 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-[#00e5ff]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-[#0066ff]/10 rounded-full blur-[90px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        </div>
-
-        {/* Title Ellipse Glow Background */}
-        <div className="absolute inset-0 pointer-events-none overflow-visible">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[200px] sm:h-[300px] md:h-[400px] bg-gradient-to-r from-[#00a8ff]/15 via-[#00e5ff]/10 to-[#00a8ff]/15 rounded-full blur-[150px]"></div>
-          <div className="absolute top-1/3 right-1/4 w-[300px] sm:w-[400px] md:w-[600px] h-[150px] sm:h-[200px] md:h-[300px] bg-[#00e5ff]/8 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-[250px] sm:w-[350px] md:w-[500px] h-[125px] sm:h-[175px] md:h-[250px] bg-[#00a8ff]/8 rounded-full blur-[100px]"></div>
-        </div>
-
-        {/* Cyan glow shadow near footer-left behind the main title */}
-        <motion.div
-          className="absolute bottom-8 left-0 sm:left-6 w-[200px] sm:w-[300px] md:w-[420px] h-[200px] sm:h-[300px] md:h-[420px] rounded-full blur-[140px] pointer-events-none"
-          style={{ background: "radial-gradient(closest-side, rgba(0,232,255,0.18), rgba(0,168,255,0.08), transparent)" }}
-          animate={{ opacity: [0.2, 0.45, 0.2], scale: [1, 1.04, 1] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -134,10 +117,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight px-4"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight px-4"
           >
             <span className="text-white block mb-2">Faisal Haroon</span>
-            <span className="gradient-text block text-3xl sm:text-4xl md:text-5xl lg:text-7xl">Engineer, Learner, Creator</span>
+            <span className="gradient-text block text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Engineer, Learner, Creator</span>
           </motion.h1>
           
           <motion.p
@@ -160,10 +143,10 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="group relative px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] text-black font-bold text-base sm:text-lg rounded-xl overflow-hidden"
+                className="group relative px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-4 bg-gradient-to-r from-[#00a8ff] to-[#00e5ff] text-black font-bold text-base sm:text-lg rounded-xl overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
-                  Explore My World
+                  Explore About Me
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" />
                 </span>
                 <motion.div
@@ -177,7 +160,7 @@ export default function Home() {
           </motion.div>
 
           {/* Scroll Indicator */}
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -194,7 +177,7 @@ export default function Home() {
             >
               <ChevronDown className="text-[#00e5ff]" size={24} />
             </motion.div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </motion.div>
 
@@ -287,11 +270,6 @@ export default function Home() {
       {/* Storytelling & Content Creation Section */}
       <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
-        {/* Ellipse Glows */}
-        <div className="absolute inset-0 pointer-events-none overflow-visible">
-          <div className="absolute top-1/2 left-1/4 w-[300px] sm:w-[400px] md:w-[600px] h-[150px] sm:h-[200px] md:h-[300px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[250px] sm:w-[350px] md:w-[500px] h-[125px] sm:h-[175px] md:h-[250px] bg-[#00e5ff]/8 rounded-full blur-[110px]"></div>
-        </div>
         
         <div className="max-w-6xl mx-auto relative">
           <motion.div
@@ -419,7 +397,6 @@ export default function Home() {
       {/* Vision - 3D tilt with tron accents */}
       <section className="bg-transparent py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
-        <div className="absolute top-1/4 right-1/4 w-[250px] sm:w-[350px] md:w-[520px] h-[250px] sm:h-[350px] md:h-[520px] bg-[#00a8ff]/10 rounded-full blur-[150px]"></div>
 
         <div className="max-w-6xl mx-auto relative" style={{ padding: '2rem 0' }}>
           <motion.div

@@ -79,7 +79,12 @@ export default function DigitalWorld() {
   return (
     <LayoutWrapper>
       {/* Hero Section */}
+      <div className="absolute inset-0 pointer-events-none overflow-visible">
+          <div className="absolute top-1/2 left-1/4 w-[600px] h-[300px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[250px] bg-[#00e5ff]/8 rounded-full blur-[110px]"></div>
+        </div>
       <section className="relative min-h-[60vh] flex items-center py-20 px-6 overflow-x-hidden overflow-y-hidden">
+        
         <div className="absolute inset-0 grid-pattern opacity-10"></div>
         {/* Title Ellipse Glow */}
         <div className="absolute inset-0 pointer-events-none overflow-visible">
@@ -109,10 +114,7 @@ export default function DigitalWorld() {
       <section className="bg-transparent py-24 px-6 relative overflow-x-hidden overflow-y-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5"></div>
         {/* Ellipse Glows */}
-        <div className="absolute inset-0 pointer-events-none overflow-visible">
-          <div className="absolute top-1/2 left-1/4 w-[600px] h-[300px] bg-[#00a8ff]/10 rounded-full blur-[130px]"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[250px] bg-[#00e5ff]/8 rounded-full blur-[110px]"></div>
-        </div>
+       
         
         <div className="max-w-6xl mx-auto relative">
           <motion.div

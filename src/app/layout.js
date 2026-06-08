@@ -1,4 +1,5 @@
 import { Orbitron, Inter } from "next/font/google";
+import FloatingChatWidget from "@/components/Chat/FloatingChatWidget";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -37,6 +38,8 @@ export default function RootLayout({ children }) {
         }}
       >
         {children}
+
+        <FloatingChatWidget />
       </body>
     </html>
   );
